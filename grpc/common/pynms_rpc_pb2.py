@@ -3,7 +3,6 @@
 
 import sys
 _b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
-from google.protobuf.internal import enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -21,125 +20,23 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='pynms_rpc.proto',
   package='pynms_api',
   syntax='proto3',
-  serialized_pb=_b('\n\x0fpynms_rpc.proto\x12\tpynms_api\x1a\x19google/protobuf/any.proto\":\n\x04Path\x12!\n\x04type\x18\x01 \x01(\x0e\x32\x13.pynms_api.PathType\x12\x0f\n\x07\x65lement\x18\x02 \x03(\t\"[\n\x08Response\x12!\n\x04path\x18\x01 \x01(\x0e\x32\x13.pynms_api.PathType\x12\x1d\n\x04type\x18\x02 \x01(\x0e\x32\x0f.pynms_api.Type\x12\r\n\x05value\x18\x03 \x01(\t\"/\n\nGetRequest\x12!\n\x04path\x18\x02 \x03(\x0e\x32\x13.pynms_api.PathType\"4\n\x0bGetResponse\x12%\n\x08response\x18\x01 \x03(\x0b\x32\x13.pynms_api.Response*\x1f\n\x04Type\x12\x08\n\x04JSON\x10\x00\x12\r\n\tIETF_JSON\x10\x02**\n\x08PathType\x12\t\n\x05XPATH\x10\x00\x12\x13\n\x0fOpenConfig_Path\x10\x01\x32?\n\x07OCPyNMS\x12\x34\n\x03Get\x12\x15.pynms_api.GetRequest\x1a\x16.pynms_api.GetResponseb\x06proto3')
+  serialized_pb=_b('\n\x0fpynms_rpc.proto\x12\tpynms_api\x1a\x19google/protobuf/any.proto\"\x1a\n\nGetRequest\x12\x0c\n\x04path\x18\x03 \x01(\t\"\x1c\n\x0bGetResponse\x12\r\n\x05value\x18\x03 \x01(\t2?\n\x07OCPyNMS\x12\x34\n\x03Get\x12\x15.pynms_api.GetRequest\x1a\x16.pynms_api.GetResponseb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_any__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-_TYPE = _descriptor.EnumDescriptor(
-  name='Type',
-  full_name='pynms_api.Type',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='JSON', index=0, number=0,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='IETF_JSON', index=1, number=2,
-      options=None,
-      type=None),
-  ],
-  containing_type=None,
-  options=None,
-  serialized_start=313,
-  serialized_end=344,
-)
-_sym_db.RegisterEnumDescriptor(_TYPE)
-
-Type = enum_type_wrapper.EnumTypeWrapper(_TYPE)
-_PATHTYPE = _descriptor.EnumDescriptor(
-  name='PathType',
-  full_name='pynms_api.PathType',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='XPATH', index=0, number=0,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='OpenConfig_Path', index=1, number=1,
-      options=None,
-      type=None),
-  ],
-  containing_type=None,
-  options=None,
-  serialized_start=346,
-  serialized_end=388,
-)
-_sym_db.RegisterEnumDescriptor(_PATHTYPE)
-
-PathType = enum_type_wrapper.EnumTypeWrapper(_PATHTYPE)
-JSON = 0
-IETF_JSON = 2
-XPATH = 0
-OpenConfig_Path = 1
 
 
 
-_PATH = _descriptor.Descriptor(
-  name='Path',
-  full_name='pynms_api.Path',
+_GETREQUEST = _descriptor.Descriptor(
+  name='GetRequest',
+  full_name='pynms_api.GetRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='type', full_name='pynms_api.Path.type', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='element', full_name='pynms_api.Path.element', index=1,
-      number=2, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=57,
-  serialized_end=115,
-)
-
-
-_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='pynms_api.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='path', full_name='pynms_api.Response.path', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='type', full_name='pynms_api.Response.type', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='value', full_name='pynms_api.Response.value', index=2,
+      name='path', full_name='pynms_api.GetRequest.path', index=0,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -157,39 +54,8 @@ _RESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=117,
-  serialized_end=208,
-)
-
-
-_GETREQUEST = _descriptor.Descriptor(
-  name='GetRequest',
-  full_name='pynms_api.GetRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='path', full_name='pynms_api.GetRequest.path', index=0,
-      number=2, type=14, cpp_type=8, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=210,
-  serialized_end=257,
+  serialized_start=57,
+  serialized_end=83,
 )
 
 
@@ -201,9 +67,9 @@ _GETRESPONSE = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='response', full_name='pynms_api.GetResponse.response', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
+      name='value', full_name='pynms_api.GetResponse.value', index=0,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -219,35 +85,12 @@ _GETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=259,
-  serialized_end=311,
+  serialized_start=85,
+  serialized_end=113,
 )
 
-_PATH.fields_by_name['type'].enum_type = _PATHTYPE
-_RESPONSE.fields_by_name['path'].enum_type = _PATHTYPE
-_RESPONSE.fields_by_name['type'].enum_type = _TYPE
-_GETREQUEST.fields_by_name['path'].enum_type = _PATHTYPE
-_GETRESPONSE.fields_by_name['response'].message_type = _RESPONSE
-DESCRIPTOR.message_types_by_name['Path'] = _PATH
-DESCRIPTOR.message_types_by_name['Response'] = _RESPONSE
 DESCRIPTOR.message_types_by_name['GetRequest'] = _GETREQUEST
 DESCRIPTOR.message_types_by_name['GetResponse'] = _GETRESPONSE
-DESCRIPTOR.enum_types_by_name['Type'] = _TYPE
-DESCRIPTOR.enum_types_by_name['PathType'] = _PATHTYPE
-
-Path = _reflection.GeneratedProtocolMessageType('Path', (_message.Message,), dict(
-  DESCRIPTOR = _PATH,
-  __module__ = 'pynms_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:pynms_api.Path)
-  ))
-_sym_db.RegisterMessage(Path)
-
-Response = _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), dict(
-  DESCRIPTOR = _RESPONSE,
-  __module__ = 'pynms_rpc_pb2'
-  # @@protoc_insertion_point(class_scope:pynms_api.Response)
-  ))
-_sym_db.RegisterMessage(Response)
 
 GetRequest = _reflection.GeneratedProtocolMessageType('GetRequest', (_message.Message,), dict(
   DESCRIPTOR = _GETREQUEST,

@@ -11,8 +11,9 @@ deb http://http.debian.net/debian jessie-backports main
 # pip install virtualenv
 # virtualenv dev
 # source dev/bin/activate
-# pip install grpcio pyangbind
+# pip install grpcio pyangbind      # sigh a bit at the pyangbind dependencies ;-)
 ```
+
 
 
 

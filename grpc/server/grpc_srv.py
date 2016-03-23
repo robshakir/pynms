@@ -2,14 +2,14 @@
 
 import sys
 import os
+import time
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "common"))
-
 import pynms_rpc_pb2
 
 
 class NetElem(pynms_rpc_pb2.BetaOCPyNMSServicer):
   def Get(self, request, context):
-    return pynms_rpc_pb2.GetResponse(path=["some", "path"], type=pynms_rpc_pb2.IETF_JSON, value="{'test': null}")
+    return pynms_rpc_pb2.GetResponse(value="a response")
 
 def serve():
   server = pynms_rpc_pb2.beta_create_OCPyNMS_server(NetElem())
