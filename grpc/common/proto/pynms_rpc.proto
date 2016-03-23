@@ -4,53 +4,73 @@ import "google/protobuf/any.proto";
 
 package pynms_api;
 
-// How the data is encoded - support only JSON encoding.
-//enum Type {
-//	JSON = 0;
-	// ID 1 = bytes
-//	IETF_JSON = 2;
-//}
+// The types of encoding that the API supports. This specifies
+// how the client would like the data encoded back. Expanded
+// from openconfig-rpc.
+enum EncodingType {
+	// IETF specification JSON
+	JSON_IETF = 0;
+	// PyangBind specific internal JSON
+	JSON_PYBIND = 100;
+}
 
-// types of path
-//enum PathType {
-//	XPATH = 0;
-//	OpenConfig_Path = 1;
-//}
+// The types of command that are supported by the server. This
+// allows filtering of the data that is returned from a Get
+// command in the service.
+enum GetDataCommand {
+	GET_ALL = 0;
+	GET_CONFIG = 1;
+	GET_OPSTATE = 2;
+	GET_OPER = 3;
+}
 
-// a path to a particular data element
-//message Path {
-//	PathType type = 1;
-//	repeated string element = 2;
-//}
+// Response codes from the API - these are utilised in the response
+// to a Get command in the service.
+enum RPCResponse {
+	OK = 0;
+	NOK = 1;
+	UNSUPPORTED_PATH = 2;
+	INVALID_PATH = 3;
+	INVALID_CONFIGURATION = 4;
+	UNSUPPORTED_INTERVAL = 5;
+	INVALID_SUBSCRIPTION_ID = 6;
+	UNSUPPORTED_ENCODING = 7;
+}
 
-// The message that is used in GetResponse
-// TODO: make this more generic
-//message Response {
-	// The path that this response corresponds to
-	//PathType path = 1;
-	// The type of encoding that is used in this
-	// response.
-	//Type type = 2;
-	// The value of the object.
-	//string value = 3;
-//}
-
-// the basic NMS service
 service OCPyNMS {
-	// currently only support a get() method
 	rpc Get(GetRequest) returns (GetResponse);
 }
 
-// A request for data
-message GetRequest {
-	// ID = 1 is a prefix, unsupported
-	//repeated PathType path = 2;
+// The submessage utilised for get requests within a larger
+// GetRequest
+message GetRequestOperation {
+	string operation_id = 1;
+	GetDataCommand operation = 2;
 	string path = 3;
 }
 
-// A response
-message GetResponse {
+// Message sent by the client to the server when a request is
+// made.
+message GetRequest {
+	uint64 request_id = 1;
+	EncodingType encoding = 2;
+	string prefix = 3;
+	repeated GetRequestOperation get_request = 4;
+}
+
+// The submessage used by the server to respond to a get request
+// from a client.
+message GetResponseOperation {
+	string operation_id = 1;
+	string path = 2;
 	string value = 3;
-	//repeated Response response = 1;
+	RPCResponse response_code = 4;
+	string message = 5;
+}
+
+// The message used by the server in response to a get request.
+message GetResponse {
+	uint64 request_id = 1;
+	repeated GetResponseOperation response = 2;
 }
 
