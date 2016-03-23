@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+package pynms_api;
+
+// How the data is encoded - support only JSON encoding.
+enum Type {
+	JSON = 0;
+	// ID 1 = bytes
+	IETF_JSON = 2;
+}
+
+// types of path
+enum PathType {
+	XPATH = 0;
+	OpenConfig_Path = 1;
+}
+
+// a path to a particular data element
+message Path {
+	PathType type = 1;
+	repeated string element = 2;
+}
+
+// The message that is used in GetResponse
+// TODO: make this more generic
+message Response {
+	// The path that this response corresponds to
+	PathType path = 1;
+	// The type of encoding that is used in this
+	// response.
+	Type type = 2;
+	// The value of the object.
+	string value = 3;
+}
+
+// the basic NMS service
+service OCPyNMS {
+	// currently only support a get() method
+	rpc Get(GetRequest) returns (GetResponse);
+}
+
+// A request for data
+message GetRequest {
+	// ID = 1 is a prefix, unsupported
+	repeated PathType path = 2;
+}
+
+// A response
+message GetResponse {
+	repeated Response response = 1;
+}
+
