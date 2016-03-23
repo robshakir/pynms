@@ -1,0 +1,58 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+source: source
+destination: _site
+sass:
+  sass_dir: _sass
+  style: expanded # compressed # expanded
+
+# permalink and highlighter
+permalink   : /:year/:title/
+markdown    : kramdown
+highlighter : rogue
+
+# SEO settings
+title: PyNMS
+description: "A collection of Python libraries for network management."
+keywords: "Python, YANG, NMS, network management, telemetry, provisioning, network automation, netdevops"
+
+# Site settings
+url: http://pynms.io
+#baseurl: "/dotX"
+baseurl: ""
+
+# Author settings
+# author:
+#   name      : Fernando Moreira
+#   job       : Frontend Engineer
+#   bio       : "Enthusiast performance, responsive design and usability, always looking for the best project and good coffee."
+#   thumb     : /images/author.jpg
+#   email     : nandomoreira.me@gmail.com
+#   url       : http://nandomoreira.me
+#   github    : http://github.com/nandomoreirame
+#   twitter   : http://twitter.com/nandomoreirame
+#   facebook  : http://facebook.com/fernando.dev
+#   linkedin  : http://linkedin.com/in/nandomoreirame
+author:
+  name: Rob Shakir
+  linkedin:   http://uk.linkedin.com/in/robjs
+  github:     https://github.com/robshakir
+  twitter:    http://twitter.com/robshakir
+
+navitems:
+  - url:  /docs
+    text: Documentation
+  - url:  https://github.com/robshakir/pynms
+    text: GitHub
+
+projects:
+  - path: pyangbind
+    name: PyangBind
+
+# comments
+#disqus_shortname: "fernandomoreira"
