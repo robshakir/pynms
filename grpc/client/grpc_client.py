@@ -122,6 +122,7 @@ if __name__ == '__main__':
     s = n.servers.server.add(svr[1])
     s.config.name = svr[0]
   s_oper = grpc_PyNMS_config_operation("/system/ntp", n, 'UPDATE_CONFIG')
+  print client.set_paths([s_oper])
 
   print "AFTER: "
   print client.get_paths(["/system/ntp"], request_id=3)
