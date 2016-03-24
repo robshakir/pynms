@@ -14,14 +14,23 @@ enum EncodingType {
 	JSON_PYBIND = 100;
 }
 
-// The types of command that are supported by the server. This
-// allows filtering of the data that is returned from a Get
-// command in the service.
+// The types of command that are supported by the server for
+// the Get RPC. This allows filtering of the data that is
+// returned from a Get command in the service.
 enum GetDataCommand {
 	GET_ALL = 0;
 	GET_CONFIG = 1;
 	GET_OPSTATE = 2;
 	GET_OPER = 3;
+}
+
+// The types of command that are supported by the server for the
+// Set RPC. This allows different modes of inserting configuration
+// to be followed.
+enum SetDataCommand {
+	UPDATE_CONFIG = 0;
+	REPLACE_CONFIG = 1;
+	DELETE_CONFIG = 2;
 }
 
 // Response codes from the API - these are utilised in the response
@@ -39,6 +48,8 @@ enum RPCResponse {
 
 service OCPyNMS {
 	rpc Get(GetRequest) returns (GetResponse);
+	rpc Set(SetRequest) returns (SetResponse);
+
 }
 
 // The submessage utilised for get requests within a larger
@@ -74,3 +85,35 @@ message GetResponse {
 	repeated GetResponseOperation response = 2;
 }
 
+// Submessage used for a set operation - multiple SetRequestOperation
+// commands can exist per SetRequest message.
+message SetRequestOperation {
+	string operation_id = 1;
+	SetDataCommand operation = 2;
+	string path = 3;
+	string value = 4;
+}
+
+// The message that is used by a client for a set request
+message SetRequest {
+	uint64 request_id = 1;
+	bool transaction = 2;
+	EncodingType encoding = 3;
+	string prefix = 4;
+	repeated SetRequestOperation config_operation = 5;
+}
+
+// The submessage that is used in a response to each SetMessageOperation
+// submessage in a SetRequest
+message SetResponseOperation {
+	string operation_id = 1;
+	RPCResponse response_code = 2;
+	string message = 3;
+}
+
+// The message that is returned by the server in response
+// to a set request.
+message SetResponse {
+	uint64 request_id = 1;
+	repeated SetResponseOperation response = 2;
+}

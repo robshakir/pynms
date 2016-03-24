@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='pynms_rpc.proto',
   package='pynms_api',
   syntax='proto3',
-  serialized_pb=_b('\n\x0fpynms_rpc.proto\x12\tpynms_api\x1a\x19google/protobuf/any.proto\"g\n\x13GetRequestOperation\x12\x14\n\x0coperation_id\x18\x01 \x01(\t\x12,\n\toperation\x18\x02 \x01(\x0e\x32\x19.pynms_api.GetDataCommand\x12\x0c\n\x04path\x18\x03 \x01(\t\"\x90\x01\n\nGetRequest\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12)\n\x08\x65ncoding\x18\x02 \x01(\x0e\x32\x17.pynms_api.EncodingType\x12\x0e\n\x06prefix\x18\x03 \x01(\t\x12\x33\n\x0bget_request\x18\x04 \x03(\x0b\x32\x1e.pynms_api.GetRequestOperation\"\x89\x01\n\x14GetResponseOperation\x12\x14\n\x0coperation_id\x18\x01 \x01(\t\x12\x0c\n\x04path\x18\x02 \x01(\t\x12\r\n\x05value\x18\x03 \x01(\t\x12-\n\rresponse_code\x18\x04 \x01(\x0e\x32\x16.pynms_api.RPCResponse\x12\x0f\n\x07message\x18\x05 \x01(\t\"T\n\x0bGetResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x31\n\x08response\x18\x02 \x03(\x0b\x32\x1f.pynms_api.GetResponseOperation*.\n\x0c\x45ncodingType\x12\r\n\tJSON_IETF\x10\x00\x12\x0f\n\x0bJSON_PYBIND\x10\x64*L\n\x0eGetDataCommand\x12\x0b\n\x07GET_ALL\x10\x00\x12\x0e\n\nGET_CONFIG\x10\x01\x12\x0f\n\x0bGET_OPSTATE\x10\x02\x12\x0c\n\x08GET_OPER\x10\x03*\xb2\x01\n\x0bRPCResponse\x12\x06\n\x02OK\x10\x00\x12\x07\n\x03NOK\x10\x01\x12\x14\n\x10UNSUPPORTED_PATH\x10\x02\x12\x10\n\x0cINVALID_PATH\x10\x03\x12\x19\n\x15INVALID_CONFIGURATION\x10\x04\x12\x18\n\x14UNSUPPORTED_INTERVAL\x10\x05\x12\x1b\n\x17INVALID_SUBSCRIPTION_ID\x10\x06\x12\x18\n\x14UNSUPPORTED_ENCODING\x10\x07\x32?\n\x07OCPyNMS\x12\x34\n\x03Get\x12\x15.pynms_api.GetRequest\x1a\x16.pynms_api.GetResponseb\x06proto3')
+  serialized_pb=_b('\n\x0fpynms_rpc.proto\x12\tpynms_api\x1a\x19google/protobuf/any.proto\"g\n\x13GetRequestOperation\x12\x14\n\x0coperation_id\x18\x01 \x01(\t\x12,\n\toperation\x18\x02 \x01(\x0e\x32\x19.pynms_api.GetDataCommand\x12\x0c\n\x04path\x18\x03 \x01(\t\"\x90\x01\n\nGetRequest\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12)\n\x08\x65ncoding\x18\x02 \x01(\x0e\x32\x17.pynms_api.EncodingType\x12\x0e\n\x06prefix\x18\x03 \x01(\t\x12\x33\n\x0bget_request\x18\x04 \x03(\x0b\x32\x1e.pynms_api.GetRequestOperation\"\x89\x01\n\x14GetResponseOperation\x12\x14\n\x0coperation_id\x18\x01 \x01(\t\x12\x0c\n\x04path\x18\x02 \x01(\t\x12\r\n\x05value\x18\x03 \x01(\t\x12-\n\rresponse_code\x18\x04 \x01(\x0e\x32\x16.pynms_api.RPCResponse\x12\x0f\n\x07message\x18\x05 \x01(\t\"T\n\x0bGetResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x31\n\x08response\x18\x02 \x03(\x0b\x32\x1f.pynms_api.GetResponseOperation\"v\n\x13SetRequestOperation\x12\x14\n\x0coperation_id\x18\x01 \x01(\t\x12,\n\toperation\x18\x02 \x01(\x0e\x32\x19.pynms_api.SetDataCommand\x12\x0c\n\x04path\x18\x03 \x01(\t\x12\r\n\x05value\x18\x04 \x01(\t\"\xaa\x01\n\nSetRequest\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x13\n\x0btransaction\x18\x02 \x01(\x08\x12)\n\x08\x65ncoding\x18\x03 \x01(\x0e\x32\x17.pynms_api.EncodingType\x12\x0e\n\x06prefix\x18\x04 \x01(\t\x12\x38\n\x10\x63onfig_operation\x18\x05 \x03(\x0b\x32\x1e.pynms_api.SetRequestOperation\"l\n\x14SetResponseOperation\x12\x14\n\x0coperation_id\x18\x01 \x01(\t\x12-\n\rresponse_code\x18\x02 \x01(\x0e\x32\x16.pynms_api.RPCResponse\x12\x0f\n\x07message\x18\x03 \x01(\t\"T\n\x0bSetResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x31\n\x08response\x18\x02 \x03(\x0b\x32\x1f.pynms_api.SetResponseOperation*.\n\x0c\x45ncodingType\x12\r\n\tJSON_IETF\x10\x00\x12\x0f\n\x0bJSON_PYBIND\x10\x64*L\n\x0eGetDataCommand\x12\x0b\n\x07GET_ALL\x10\x00\x12\x0e\n\nGET_CONFIG\x10\x01\x12\x0f\n\x0bGET_OPSTATE\x10\x02\x12\x0c\n\x08GET_OPER\x10\x03*J\n\x0eSetDataCommand\x12\x11\n\rUPDATE_CONFIG\x10\x00\x12\x12\n\x0eREPLACE_CONFIG\x10\x01\x12\x11\n\rDELETE_CONFIG\x10\x02*\xb2\x01\n\x0bRPCResponse\x12\x06\n\x02OK\x10\x00\x12\x07\n\x03NOK\x10\x01\x12\x14\n\x10UNSUPPORTED_PATH\x10\x02\x12\x10\n\x0cINVALID_PATH\x10\x03\x12\x19\n\x15INVALID_CONFIGURATION\x10\x04\x12\x18\n\x14UNSUPPORTED_INTERVAL\x10\x05\x12\x1b\n\x17INVALID_SUBSCRIPTION_ID\x10\x06\x12\x18\n\x14UNSUPPORTED_ENCODING\x10\x07\x32u\n\x07OCPyNMS\x12\x34\n\x03Get\x12\x15.pynms_api.GetRequest\x1a\x16.pynms_api.GetResponse\x12\x34\n\x03Set\x12\x15.pynms_api.SetRequest\x1a\x16.pynms_api.SetResponseb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_any__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -43,8 +43,8 @@ _ENCODINGTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=535,
-  serialized_end=581,
+  serialized_start=1024,
+  serialized_end=1070,
 )
 _sym_db.RegisterEnumDescriptor(_ENCODINGTYPE)
 
@@ -74,12 +74,39 @@ _GETDATACOMMAND = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=583,
-  serialized_end=659,
+  serialized_start=1072,
+  serialized_end=1148,
 )
 _sym_db.RegisterEnumDescriptor(_GETDATACOMMAND)
 
 GetDataCommand = enum_type_wrapper.EnumTypeWrapper(_GETDATACOMMAND)
+_SETDATACOMMAND = _descriptor.EnumDescriptor(
+  name='SetDataCommand',
+  full_name='pynms_api.SetDataCommand',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='UPDATE_CONFIG', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='REPLACE_CONFIG', index=1, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DELETE_CONFIG', index=2, number=2,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=1150,
+  serialized_end=1224,
+)
+_sym_db.RegisterEnumDescriptor(_SETDATACOMMAND)
+
+SetDataCommand = enum_type_wrapper.EnumTypeWrapper(_SETDATACOMMAND)
 _RPCRESPONSE = _descriptor.EnumDescriptor(
   name='RPCResponse',
   full_name='pynms_api.RPCResponse',
@@ -121,8 +148,8 @@ _RPCRESPONSE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=662,
-  serialized_end=840,
+  serialized_start=1227,
+  serialized_end=1405,
 )
 _sym_db.RegisterEnumDescriptor(_RPCRESPONSE)
 
@@ -133,6 +160,9 @@ GET_ALL = 0
 GET_CONFIG = 1
 GET_OPSTATE = 2
 GET_OPER = 3
+UPDATE_CONFIG = 0
+REPLACE_CONFIG = 1
+DELETE_CONFIG = 2
 OK = 0
 NOK = 1
 UNSUPPORTED_PATH = 2
@@ -337,17 +367,221 @@ _GETRESPONSE = _descriptor.Descriptor(
   serialized_end=533,
 )
 
+
+_SETREQUESTOPERATION = _descriptor.Descriptor(
+  name='SetRequestOperation',
+  full_name='pynms_api.SetRequestOperation',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='operation_id', full_name='pynms_api.SetRequestOperation.operation_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='operation', full_name='pynms_api.SetRequestOperation.operation', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='path', full_name='pynms_api.SetRequestOperation.path', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='pynms_api.SetRequestOperation.value', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=535,
+  serialized_end=653,
+)
+
+
+_SETREQUEST = _descriptor.Descriptor(
+  name='SetRequest',
+  full_name='pynms_api.SetRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='pynms_api.SetRequest.request_id', index=0,
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='transaction', full_name='pynms_api.SetRequest.transaction', index=1,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='encoding', full_name='pynms_api.SetRequest.encoding', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='prefix', full_name='pynms_api.SetRequest.prefix', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='config_operation', full_name='pynms_api.SetRequest.config_operation', index=4,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=656,
+  serialized_end=826,
+)
+
+
+_SETRESPONSEOPERATION = _descriptor.Descriptor(
+  name='SetResponseOperation',
+  full_name='pynms_api.SetResponseOperation',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='operation_id', full_name='pynms_api.SetResponseOperation.operation_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='response_code', full_name='pynms_api.SetResponseOperation.response_code', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='message', full_name='pynms_api.SetResponseOperation.message', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=828,
+  serialized_end=936,
+)
+
+
+_SETRESPONSE = _descriptor.Descriptor(
+  name='SetResponse',
+  full_name='pynms_api.SetResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='pynms_api.SetResponse.request_id', index=0,
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='response', full_name='pynms_api.SetResponse.response', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=938,
+  serialized_end=1022,
+)
+
 _GETREQUESTOPERATION.fields_by_name['operation'].enum_type = _GETDATACOMMAND
 _GETREQUEST.fields_by_name['encoding'].enum_type = _ENCODINGTYPE
 _GETREQUEST.fields_by_name['get_request'].message_type = _GETREQUESTOPERATION
 _GETRESPONSEOPERATION.fields_by_name['response_code'].enum_type = _RPCRESPONSE
 _GETRESPONSE.fields_by_name['response'].message_type = _GETRESPONSEOPERATION
+_SETREQUESTOPERATION.fields_by_name['operation'].enum_type = _SETDATACOMMAND
+_SETREQUEST.fields_by_name['encoding'].enum_type = _ENCODINGTYPE
+_SETREQUEST.fields_by_name['config_operation'].message_type = _SETREQUESTOPERATION
+_SETRESPONSEOPERATION.fields_by_name['response_code'].enum_type = _RPCRESPONSE
+_SETRESPONSE.fields_by_name['response'].message_type = _SETRESPONSEOPERATION
 DESCRIPTOR.message_types_by_name['GetRequestOperation'] = _GETREQUESTOPERATION
 DESCRIPTOR.message_types_by_name['GetRequest'] = _GETREQUEST
 DESCRIPTOR.message_types_by_name['GetResponseOperation'] = _GETRESPONSEOPERATION
 DESCRIPTOR.message_types_by_name['GetResponse'] = _GETRESPONSE
+DESCRIPTOR.message_types_by_name['SetRequestOperation'] = _SETREQUESTOPERATION
+DESCRIPTOR.message_types_by_name['SetRequest'] = _SETREQUEST
+DESCRIPTOR.message_types_by_name['SetResponseOperation'] = _SETRESPONSEOPERATION
+DESCRIPTOR.message_types_by_name['SetResponse'] = _SETRESPONSE
 DESCRIPTOR.enum_types_by_name['EncodingType'] = _ENCODINGTYPE
 DESCRIPTOR.enum_types_by_name['GetDataCommand'] = _GETDATACOMMAND
+DESCRIPTOR.enum_types_by_name['SetDataCommand'] = _SETDATACOMMAND
 DESCRIPTOR.enum_types_by_name['RPCResponse'] = _RPCRESPONSE
 
 GetRequestOperation = _reflection.GeneratedProtocolMessageType('GetRequestOperation', (_message.Message,), dict(
@@ -378,6 +612,34 @@ GetResponse = _reflection.GeneratedProtocolMessageType('GetResponse', (_message.
   ))
 _sym_db.RegisterMessage(GetResponse)
 
+SetRequestOperation = _reflection.GeneratedProtocolMessageType('SetRequestOperation', (_message.Message,), dict(
+  DESCRIPTOR = _SETREQUESTOPERATION,
+  __module__ = 'pynms_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:pynms_api.SetRequestOperation)
+  ))
+_sym_db.RegisterMessage(SetRequestOperation)
+
+SetRequest = _reflection.GeneratedProtocolMessageType('SetRequest', (_message.Message,), dict(
+  DESCRIPTOR = _SETREQUEST,
+  __module__ = 'pynms_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:pynms_api.SetRequest)
+  ))
+_sym_db.RegisterMessage(SetRequest)
+
+SetResponseOperation = _reflection.GeneratedProtocolMessageType('SetResponseOperation', (_message.Message,), dict(
+  DESCRIPTOR = _SETRESPONSEOPERATION,
+  __module__ = 'pynms_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:pynms_api.SetResponseOperation)
+  ))
+_sym_db.RegisterMessage(SetResponseOperation)
+
+SetResponse = _reflection.GeneratedProtocolMessageType('SetResponse', (_message.Message,), dict(
+  DESCRIPTOR = _SETRESPONSE,
+  __module__ = 'pynms_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:pynms_api.SetResponse)
+  ))
+_sym_db.RegisterMessage(SetResponse)
+
 
 import abc
 from grpc.beta import implementations as beta_implementations
@@ -390,6 +652,9 @@ class BetaOCPyNMSServicer(object):
   @abc.abstractmethod
   def Get(self, request, context):
     raise NotImplementedError()
+  @abc.abstractmethod
+  def Set(self, request, context):
+    raise NotImplementedError()
 
 class BetaOCPyNMSStub(object):
   """The interface to which stubs will conform."""
@@ -398,18 +663,27 @@ class BetaOCPyNMSStub(object):
   def Get(self, request, timeout):
     raise NotImplementedError()
   Get.future = None
+  @abc.abstractmethod
+  def Set(self, request, timeout):
+    raise NotImplementedError()
+  Set.future = None
 
 def beta_create_OCPyNMS_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
   import pynms_rpc_pb2
   import pynms_rpc_pb2
+  import pynms_rpc_pb2
+  import pynms_rpc_pb2
   request_deserializers = {
     ('pynms_api.OCPyNMS', 'Get'): pynms_rpc_pb2.GetRequest.FromString,
+    ('pynms_api.OCPyNMS', 'Set'): pynms_rpc_pb2.SetRequest.FromString,
   }
   response_serializers = {
     ('pynms_api.OCPyNMS', 'Get'): pynms_rpc_pb2.GetResponse.SerializeToString,
+    ('pynms_api.OCPyNMS', 'Set'): pynms_rpc_pb2.SetResponse.SerializeToString,
   }
   method_implementations = {
     ('pynms_api.OCPyNMS', 'Get'): face_utilities.unary_unary_inline(servicer.Get),
+    ('pynms_api.OCPyNMS', 'Set'): face_utilities.unary_unary_inline(servicer.Set),
   }
   server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
   return beta_implementations.server(method_implementations, options=server_options)
@@ -417,14 +691,19 @@ def beta_create_OCPyNMS_server(servicer, pool=None, pool_size=None, default_time
 def beta_create_OCPyNMS_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
   import pynms_rpc_pb2
   import pynms_rpc_pb2
+  import pynms_rpc_pb2
+  import pynms_rpc_pb2
   request_serializers = {
     ('pynms_api.OCPyNMS', 'Get'): pynms_rpc_pb2.GetRequest.SerializeToString,
+    ('pynms_api.OCPyNMS', 'Set'): pynms_rpc_pb2.SetRequest.SerializeToString,
   }
   response_deserializers = {
     ('pynms_api.OCPyNMS', 'Get'): pynms_rpc_pb2.GetResponse.FromString,
+    ('pynms_api.OCPyNMS', 'Set'): pynms_rpc_pb2.SetResponse.FromString,
   }
   cardinalities = {
     'Get': cardinality.Cardinality.UNARY_UNARY,
+    'Set': cardinality.Cardinality.UNARY_UNARY,
   }
   stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
   return beta_implementations.dynamic_stub(channel, 'pynms_api.OCPyNMS', cardinalities, options=stub_options)

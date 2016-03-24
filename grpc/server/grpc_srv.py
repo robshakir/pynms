@@ -18,6 +18,10 @@ class grpc_PyNMS_servicer(pynms_rpc_pb2.BetaOCPyNMSServicer):
     response_msg = grpc_PyNMS_methods.service_get_request(request, self._path_helper)
     return response_msg
 
+  def Set(self, request, context):
+    response_msg = grpc_PyNMS_methods.service_set_request(request, self._path_helper)
+    return response_msg
+
 class grpc_PyNMS_server(object):
   def __init__(self, path_helper, port=50051):
     self._path_helper = path_helper
@@ -28,7 +32,7 @@ class grpc_PyNMS_server(object):
     self._server.start()
     try:
       while True:
-        time.sleep(84600)
+        time.sleep(86400)
     except KeyboardInterrupt:
       self._server.stop(0)
 
