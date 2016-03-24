@@ -24,7 +24,7 @@ keywords: "Python, YANG, NMS, network management, telemetry, provisioning, netwo
 # Site settings
 url: http://pynms.io
 #baseurl: "/dotX"
-baseurl: "/"
+baseurl: ""
 
 # Author settings
 # author:
