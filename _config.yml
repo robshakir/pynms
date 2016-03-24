@@ -22,9 +22,9 @@ description: "A collection of Python libraries for network management."
 keywords: "Python, YANG, NMS, network management, telemetry, provisioning, network automation, netdevops"
 
 # Site settings
-url: http://robshakir.github.io
+url: http://pynms.io
 #baseurl: "/dotX"
-baseurl: "/pynms"
+baseurl: "/"
 
 # Author settings
 # author:
