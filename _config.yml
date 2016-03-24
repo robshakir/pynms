@@ -16,6 +16,12 @@ permalink   : /:year/:title/
 markdown    : kramdown
 highlighter : rogue
 
+kramdown:
+    input: GFM
+
+pyangbind:
+  repo:     https://github.com/robshakir/pyangbind
+
 # SEO settings
 title: PyNMS
 description: "A collection of Python libraries for network management."
@@ -53,6 +59,8 @@ navitems:
 projects:
   - path: pyangbind
     name: PyangBind
+  - path: grpc
+    name: PyNMS gRPC
 
 # comments
 #disqus_shortname: "fernandomoreira"
