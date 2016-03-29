@@ -1,11 +1,9 @@
 ---
-project: PyangBind
 layout: pybdoc
-title:  "Overview"
-permalink:  "pyangbind/overview"
-categories: pyangbind yang
-intro:  "A guide to the PyangBind documentation directory -- this document provides pointers to what's covered in each document, and to the code examples that exist in the GitHub repository."
+project: PyangBind
+title: Documentation
 ---
+
 
 ## Documentation
 

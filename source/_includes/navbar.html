@@ -15,7 +15,7 @@
         <ul class="primary-nav">
           <li><a href="{{ '/' | prepend: site.baseurl }}">Home</a></li>
           <li><a href="{{ '/about' | prepend: site.baseurl }}">About</a></li>
-          <li><a href="{{ '/docs' | prepend: site.baseurl }}">Documentation Overview</a></li>
+          <li><a href="{{ '/docs' | prepend: site.baseurl }}">Documentation Notes</a></li>
           {% for project in site.projects %}
             {% capture prjurl %}/{{ project.path }}{% endcapture %}
             <li><a href="{{ prjurl | prepend: site.baseurl }}">{{ project.name }} Documentation</a></li>

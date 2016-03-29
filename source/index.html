@@ -13,9 +13,10 @@ body_class: home-intro
 
     <nav class="intro-actions">
       <!--<a href="{{ site.repo }}/archive/master.zip" class="button button-ghost" role="button">Download {{ site.testvar }}</a>-->
-      {% for link in site.navitems %}
+      <!--{% for link in site.navitems %}
       	<a href="{{ link.url }}" class="button button-ghost" role="button">{{ link.text }}</a>
-      {% endfor %}
+      {% endfor %}-->
+        <a href="{{ site.project_github }}" class="button button-ghost" target="_blank"><i class="icon icon-github"></i><span style='padding-left: 1rem'>GitHub</span></a>
     </nav>
 
   </div>

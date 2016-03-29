@@ -9,6 +9,7 @@ layout: default
       <h1 class="post-title" itemprop="name headline"><span class="controlled-title">{{ page.project }}: {{ page.title }}</span></h1>
     </div>
     <div class="zone">
+      <span class="naviitem"><a class="naviitem" href="/pyangbind/">Overview</a></span>
     {% for doc in site.categories.pyangbind %}
       <span class="naviitem"><a class="naviitem" href="/{{ doc.permalink | prepend: site.baseurl }}">{{ doc.shortname }}</a></span>
     {% endfor %}

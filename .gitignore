@@ -1,3 +1,5 @@
 _site
 .sass-cache
 .jekyll-metadata
+# artefacts of other project
+grpc/*
