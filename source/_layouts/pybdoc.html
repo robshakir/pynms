@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header intro">
+    <div>
+      <h1 class="post-title" itemprop="name headline"><span class="controlled-title">{{ page.project }}: {{ page.title }}</span></h1>
+    </div>
+    <div class="zone">
+    {% for doc in site.categories.pyangbind %}
+      <span class="naviitem"><a class="naviitem" href="/{{ doc.permalink | prepend: site.baseurl }}">{{ doc.shortname }}</a></span>
+    {% endfor %}
+    </div>
+  </header>
+
+  <div class="post-content container" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+</article>

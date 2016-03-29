@@ -12,7 +12,7 @@ sass:
   style: expanded # compressed # expanded
 
 # permalink and highlighter
-permalink   : /:year/:title/
+#permalink   : /:year/:title/
 markdown    : kramdown
 highlighter : rogue
 
@@ -31,6 +31,7 @@ keywords: "Python, YANG, NMS, network management, telemetry, provisioning, netwo
 url: http://pynms.io
 #baseurl: "/dotX"
 baseurl: ""
+project_github: https://github.com/robshakir/pynms
 
 # Author settings
 # author:
@@ -51,7 +52,7 @@ author:
   twitter:    http://twitter.com/robshakir
 
 navitems:
-  - url:  /docs
+  - url:  /docs/
     text: Documentation
   - url:  https://github.com/robshakir/pynms
     text: GitHub
@@ -59,8 +60,8 @@ navitems:
 projects:
   - path: pyangbind
     name: PyangBind
-  - path: grpc
-    name: PyNMS gRPC
+#  - path: grpc
+#    name: PyNMS gRPC
 
 # comments
 #disqus_shortname: "fernandomoreira"

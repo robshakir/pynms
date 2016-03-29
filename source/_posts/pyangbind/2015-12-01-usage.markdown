@@ -1,10 +1,10 @@
 ---
 project: PyangBind
-layout: doc
+layout: pybdoc
 title:  "CLI Usage"
 permalink:  "pyangbind/usage"
 categories: pyangbind yang
-intro: "PyangBind's command line switches and usage."
+intro: "Explanations of the command line options that PyangBind adds to Pyang - and how this affects the output of the plugin, as well as the operation of the generated classes."
 shortname: Usage
 ---
 
@@ -27,14 +27,17 @@ PyangBind has three output modes:
     + Written to a single .py file
   * A Python module hierarchy.
 
+<hr>
 ### stdout
 
 When no options are specified, PyangBind will write a single file to `stdout`, this is considered to be self-contained and can be redirected to a particular location by the shell.
 
+<hr>
 ### -o [filename]
 
 When `-o <filename>` is specified (a standard Pyang option), then the single file output is redirected to the filename specified. Within this single file, to ensure that class names remain unique then the class naming used for all non-top-level classes is of the form `yc_<lastcontainername>_<modulename>__<object path, replacing "/" with "_">`. Clearly, this results in relatively complex class names such as `yc_config_openconfig_bgp__bgp_global_config` corresponding to the `/bgp/global/config` container in the OpenConfig BGP module.
 
+<hr>
 ### --split-class-dir [directory]
 
 When `--split-class-dir <directory>` is specified then PyangBind will create a Python module hierarchy in `directory`. This will result in each level of hierarchy in the YANG module becoming its own sub-module.
@@ -81,7 +84,7 @@ If `--use-xpath-helper` is _not_ specified, then all XPATH references throughout
 When` --use-xpath-helper` is specified, then references to the `path_helper` object that is supplied at the time of class instantiation will be passed to all of the classes children. This object is then used to provide lookup capabilities for XPATH expressions. This behaviour is further documented in (the XPathHelper documentation](xpathhelper.md).
 
 <hr>
-## Extension Options
+## Extension Options <a name="extensions"></a>
 
 When `--interesting-extension <modulename>` is specified then PyangBind will look for extensions from the module name provided that are included in the YANG module. These extensions are then placed in a dictionary that is accessible through each class' `_extensions()` method.
 

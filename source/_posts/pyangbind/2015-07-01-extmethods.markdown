@@ -1,16 +1,18 @@
 ---
-layout: post
-title:  "Extension Methods in PyangBind"
+project: PyangBind
+layout: pybdoc
+title:  "Extension Methods"
 permalink:  "extmethods"
 categories: pyangbind extensions extmethods yang
+intro: "PyangBind offers functionality to allow custom methods to be bound to a particular PyangBind object in the data tree through the use of the `extmethods` dictionary. The format expected, and use of this functionality is outlined herein."
+shortname: Extension Methods
 ---
-
-# Extension Methods in PyangBind
 
 PyangBind is designed both as a means to generate data instances for YANG modules, but also as a software component that can be used in an  NMS implementation. To that end, there can be requirements to tie methods to particular data instances in the tree.
 
 The extension methods (`extmethods`) functionality provides a means to tie arbitrary methods to a particular path in the tree.
 
+<hr>
 ## Contents
 
  * [Initialisation of classes with `extmethods`](#initialisation)
@@ -33,6 +35,7 @@ Where `/path/to/object/one` is defined as the XPATH to the object that the metho
 
 Each object, as it is instantiated, then consults the `extmethods` dictionary, if it finds an entry which corresponds to its exact path, it inherits all methods of the class instance provided - and will proxy any calls to itself to that class. The names of the methods are prefixed by an underscore in order to avoid collisions between actual data element names and method names.
 
+<hr>
 ## Example Calls with `extmethods` <a name="example-calls"></a>
 
 If one has the following class definition:

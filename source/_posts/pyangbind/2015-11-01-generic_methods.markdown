@@ -1,13 +1,12 @@
 ---
 project: PyangBind
-layout: doc
-title:  "Generic Methods Provided through PyangBind"
+layout: pybdoc
+title:  "Generic Methods Provided to PyangBind Classes"
 permalink:  "pyangbind/generic_methods"
 categories: pyangbind errors yang
+intro: "PyangBind objects add additional methods around 'normal' Python objects, to store YANG-specific attributes of the item they represent. This document provids an overview of the methods that exist for all objects, containers, and specifically for YANG lists."
 shortname: Generic Methods
 ---
-
-# Generic Methods Provided through PyangBind
 
 PyangBind's `YANGDynClass` function generates meta-classes around the class that is defined as the `base_type`/`base` when the class is generated. The wrapper that is provided gives a set of functions and variables that allow YANG-specific information to be stored alongside the value of the class.
 
@@ -15,13 +14,14 @@ Some of these methods are generically useful when handling the classes, as well 
 
 In general, methods are defined as `_<methodname>` such that clashes with the elements within YANG containers can be avoided - although for historical reasons, in some cases the `_` is omitted.
 
+<hr>
 ## Contents
 
  * [YANGDynClass Methods](#ydcmethods) - generic to all PyangBind wrapped objects other than those corresponding to YANG modules.
  * [YANG Container Methods](#containermethods) - methods defined for PyangBind objects corresponding to YANG `container` items.
  * [YANG List Methods](#listmethods) - methods defined for PyangBind objects corresponding to YANG `list` items.
 
-
+<hr>
 ## Methods/Variables Defined in YANGDynClass <a name="#ydcmethods"></a>
 
 ### `default()`
@@ -89,6 +89,7 @@ This is generally useful in the cases where one has a `leafref` value that refer
 
 Returns `True` if this value is the key of a list.
 
+<hr>
 ## YANG Container (`PybindBase`) defined Methods <a name="containermethods"></a>
 
 ### `elements()`
@@ -112,8 +113,9 @@ Returns a nested set of dictionaries that represent the current container. The f
                                'table-name': u'STATIC'}}}
 ```
 
-This may be used as an alternative to serialising/deserialising instances especially for debugging. In general, the serailisation classes will use this format as a intermediary to be able to retrieve data from the classes.
+This may be used as an alternative to serialising/deserialising instances especially for debugging. In general, the serialisation classes will use this format as a intermediary to be able to retrieve data from the classes.
 
+<hr>
 ## YANG List Methods <a name="listmethods"></a>
 
 PyangBind provides two special methods for YANG `list` objects:

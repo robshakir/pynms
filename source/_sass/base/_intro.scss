@@ -62,6 +62,7 @@ body.home-intro {
   font-family: $serif-font-family;
   font-weight: $font-weight-normal;
   font-style: italic;
+  color: rgb(117, 116, 116);
 
   @include media($min-tablet-large) {
     font-size: 1.6rem;

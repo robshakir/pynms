@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Droid+Sans+Mono);
 
 .post-header {
   margin-bottom: $base-spacing;
@@ -96,4 +95,19 @@ pre {
 
 span.line-numbers {
     padding-right: 1rem;
+}
+
+span.naviitem {
+  color: rgb(117, 116, 116);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+a.naviitem {
+  font-weight: $font-weight-light;
+  color: rgb(117, 116, 116);
+}
+
+span.controlled-title {
+  font-size: 2.5rem;
 }

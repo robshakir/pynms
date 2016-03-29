@@ -20,9 +20,10 @@
             {% capture prjurl %}/{{ project.path }}{% endcapture %}
             <li><a href="{{ prjurl | prepend: site.baseurl }}">{{ project.name }} Documentation</a></li>
           {% endfor %}
-<!--          <li><a href="{{ site.author.github }}" target="_blank"><i class="icon icon-github"></i> Github</a></li>
-          <li><a href="{{ site.author.twitter }}" target="_blank"><i class="icon icon-twitter"></i> Twitter</a></li>-->
-          <li><a href="{{ '/feed.xml' | prepend: site.baseurl }}" target="_blank"><i class="icon icon-feed"></i> RSS</a></li>
+          <li><a href="{{ site.project_github }}" target="_blank"><i class="icon icon-github"></i> GitHub</a></li>
+          <!--<li><a href="{{ site.author.twitter }}" target="_blank"><i class="icon icon-twitter"></i> Twitter</a></li>-->
+<!--          <li><a href="{{ '/feed.xml' | prepend: site.baseurl }}" target="_blank"><i class="icon icon-feed"></i> RSS</a></li>-->
+
         </ul>
       </nav>
     </div>

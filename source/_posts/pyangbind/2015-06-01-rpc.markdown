@@ -1,8 +1,11 @@
 ---
-layout: post
+project: PyangBind
+layout: pybdoc
 title:  "RPCs in PyangBind"
 permalink:  "rpc"
 categories: pyangbind rpc yang
+intro: "YANG can be used to describe the input and output parameters of an RPC -- this document provids an overview of how to generate bindings for a YANG RPC using PyangBind."
+shortname: RPCs
 ---
 
 PyangBind generates bindings for RPCs that are specified within a YANG module. The assumption is made that an RPC is not bound to any particular location within the data tree (the YANG 1.1 `action` statement is intended to meet this requirement). To this end, bindings are generated within a module named `<yang module name>_rpcs`.
@@ -11,6 +14,7 @@ All RPC bindings have the property `register_paths` set to `False`. This results
 
 An class generated for an RPC has two member containers - `input` and `output` as per the specification provided in RFC6020. The corresponding data definitions are within these two elements (which act as per YANG containers).
 
+<hr>
 ## Contents
 
 * [Example RPC](#examplerpc)  
@@ -53,6 +57,7 @@ An example simple RPC could be defined as:
 
 In this definition, the RPC `test` has an input that takes a `container` with two arguments (`argument-one` and `argument-two`) specified within it. It outputs an object that has a single `response-id` and a list of `elements` wtihin the reply. This list is not keyed (RPC outputs are defined to be `config false`).
 
+<hr>
 ### Generating an RPC Input <a name="exinput"></a>
 To generate an input for an RPC, the `input` container can be directly imported. If the example module above is generated with `--split-class-dir` into a module directory named `rbindings` then, for example:
 
@@ -80,6 +85,7 @@ The object generated can be serialised to IETF JSON as per any other container u
 }
 ```
 
+<hr>
 ### Parsing an RPC Output <a name="exoutput"></a>
 
 In a similar manner, an RPC output can be read back into the corresponding `output` class using the standard deserialisation functionality in PyangBind. For example:
@@ -99,6 +105,7 @@ The output class can then be manipulated and/or read in Python:
 32
 ```
 
+<hr>
 ### Example Code
 
 The RPC example here can be found in `docs/example/simple-rpc`.

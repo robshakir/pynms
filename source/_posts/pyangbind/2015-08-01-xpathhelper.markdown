@@ -1,14 +1,18 @@
 ---
-layout: post
-title:  "XPATH and Data Tree Structure in PyangBind"
+project: PyangBind
+layout: pybdoc
+title:  "XPATH and Data Tree Structure"
 permalink:  "xpath"
 categories: pyangbind yang
+shortname: XPATH
+intro: "YANG data models use XPATH to describe paths between nodes - for reference purposes, and inherently make up part of a data tree structure that can be queried using XPATH. PyangBind provides a helper class which can be used to resolve references, as well as to provide external components means to access particular paths."
 ---
 
  * [Overview](#overview)
  * [PyangBind's XPathHelper Classes](#xpathhelpercls)
  * [Usage of YANGPathHelper](#yangpathhelper)
 
+<hr>
 ## Overview <a name="overview"></a>
 
 YANG data models describe a tree structure - where there is a single root for all modules, and each module creates schema nodes (e.g., containers or leaves) at that root. Essentially (based on YANG's historical ties to XML) this tree structure is conceptually an XML document - and hence XPATH expressions are used to provide references between different elements in the tree.
@@ -30,6 +34,7 @@ augment "/bgp" {
 
 Both the augment and leafref statements here utilise XPATH expressions to refer to a remote node. When the value of a leafref is set then there is a requirement to check the value it is set to against the path that it refers to.
 
+<hr>
 ## PyangBind's XPathHelper Classes <a name="xpathhelpercls"></a>
 
 To allow such references to be looked up, all PyangBind classes take an argument of `path_helper` which points to an object that they can use to resolve an XPATH expression into the data instances that that path refers to.
@@ -42,6 +47,7 @@ Generically, this helper class is described in `pyangbind.lib.xpathhelper` as th
 
 It is intended that there can be multiple implementations of the XPathHelper interface such that one can use it to provide database backing if required (e.g., the XPathHelper class' `register` method could be used to serialise the corresponding data instances and insert them into a database).
 
+<hr>
 ## PyangBind's YANGPathHelper Class
 
 `pyangbind.lib.xpathhelper` provides an implementation of an XPathHelper class named `YANGPathHelper`. This class implements an in-memory mapping between paths and the corresponding PyangBind object. It does this by constructing a lightweight XML document of the form:
@@ -62,6 +68,7 @@ The `object_ptr` attribute of each XML Element provides a reference to an entry 
 
 The YANGPathHelper provides a `get()` and `get_unique()` method - the latter raises an exception if there is >1 object corresponding to the path that is specified.
 
+<hr>
 ## Usage of YANGPathHelper <a name="yangpathhelper"></a>
 
 To initialise a YANGPathHelper class and use it with PyangBind-generated classes, the bindings must have been specified with the `--use-xpathhelper` argument. This ensures that the bindings are configured to pass the `path_helper` reference to one another as new classes are instantiated.

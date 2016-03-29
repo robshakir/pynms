@@ -6,11 +6,11 @@ layout: default
 
   <header class="post-header intro">
     <div>
-      <h1 class="post-title" itemprop="name headline"><span style='font-weight: strong'>{{ page.project }}:</span> {{ page.title }}</h1>
+      <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
     </div>
-    {% for doc in site.categories.pyangbind %}
-      {{ doc.shortname }}
-    {% endfor %}
+    {% if page.subtitle %}
+      <h2 class="intro-subtitle">{{ page.subtitle }}</h2>
+    {% endif %}
   </header>
 
   <div class="post-content container" itemprop="articleBody">

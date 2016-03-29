@@ -1,9 +1,10 @@
 ---
-layout: doc
+project: PyangBind
+layout: pybdoc
 title:  "Overview"
 permalink:  "pyangbind/overview"
 categories: pyangbind yang
-intro:  "Overview of the PyangBind documentation, and examples."
+intro:  "A guide to the PyangBind documentation directory -- this document provides pointers to what's covered in each document, and to the code examples that exist in the GitHub repository."
 ---
 
 ## Documentation
@@ -12,13 +13,14 @@ PyangBind's documentation consists is broken down in the following:
 
   * [Getting Started](../getting_started) -- an overview and worked example of PyangBind's functionality.
   * [Usage](../usage) -- documents the command-line switches that PyangBind uses.
-  * [Errors](../errors) -- explains the errors that PyangBind classes will throw.
-  * [Extension Methods](../extmethods) -- usage and intention of the `extmethods` functionality in PyangBind
   * [Generic Methods](../generic_methods.md) -- the methods that the PyangBind meta-class defines, as well as methods that are added for YANG-specific types such as `container` and `list`.
-  * [RPC](../rpc) -- explains PyangBind's support for the YANG `rpc` statement, and how one may use this functionality.
+  * [Errors](../errors) -- explains the errors that PyangBind classes will throw.
   * [Serialisation and Deserialisation](serialisation.md) -- covers how PyangBind's `lib.serialise` and `lib.pybindJSON` classes can be used to output and load instances of data that have been created with a program using PyangBind's classes.
   * [XPathHelper](../xpathhelper) -- provides information relating to PyangBind's optional `XPathHelper` classes which are used to resolve XPATH expressions and can be used to traverse a data tree consisting on multiple models.
+  * [Extension Methods](../extmethods) -- usage and intention of the `extmethods` functionality in PyangBind
+  * [RPC](../rpc) -- explains PyangBind's support for the YANG `rpc` statement, and how one may use this functionality.
   * [YANG](../yang) -- gives an overview of how various YANG language features are supported in PyangBind.
+<hr>
 
 ## Examples
 
@@ -29,6 +31,7 @@ In order to allow new users to quickly see how PyangBind might work for them, so
   * [`example/simple-serialise`]({{ '/example/simple-serialise' | prepend: site.pyangbind.repo }}) shows how PyangBind's serialisation and deserialisation capabilities work. The serialisation document walks through this example.
 
 In order to understand some of the internals of PyangBind a bit better, the `tests` directory may also be useful - this provides numerous test cases intended to ensure PyangBind keeps working the way one would expect, but can be a valuable source of pointers as to how things might work.
+<hr>
 
 ## If you're stuck...
 

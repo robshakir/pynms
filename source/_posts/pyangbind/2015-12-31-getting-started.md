@@ -1,9 +1,10 @@
 ---
-layout: doc
+layout: pybdoc
+project: PyangBind
 title:  "Getting Started"
 permalink:  "pyangbind/getting_started"
 categories: pyangbind yang
-intro: "Getting Started with PyangBind."
+intro: "This document provides a walk through of generating Python bindings for an OpenConfig data model, importing them into a Python program, exporting and importing the data using JSON serialisation. It's recommended you start here!"
 shortname: Getting Started
 ---
 
@@ -15,6 +16,7 @@ shortname: Getting Started
 
 Development of **PyangBind** has been motivated by consuming the  [OpenConfig](http://www.openconfig.net/) data models; and is intended to be well-tested against these models. The Python classes generated, and serialisation methods are intended to provide network operators with a starting point for loading data instances from network elements, manipulating them, and sending them to a network device. **PyangBind** classes also have functionality which allows additional methods to be associated with the classes, such that it can be used for the foundation of a NMS.
 
+<hr>
 ## Contents
 
 * [Getting Started](#getting-started)
@@ -28,7 +30,7 @@ Development of **PyangBind** has been motivated by consuming the  [OpenConfig](h
 * [Licensing](#licensing)
 * [Acknowledgements](#acks)
 
-
+<hr>
 ## Getting Started <a name="getting-started"></a>
 
 **PyangBind** is distributed through [PyPI](http://pypi.python.org), it can be installed by simply running:
@@ -64,6 +66,7 @@ where:
 
 There are a number of other options for **PyangBind**, which are discussed further in the `docs/` directory.
 
+<hr>
 ### Using the Classes in a Python Program <a name="using-in-python"></a>
 
 **PyangBind** generates a (set of) Python modules. The top level module is named after the YANG module - with the name made Python safe. In general this appends underscores to reserved names, and replaces hyphens with underscores - such that `openconfig-local-routing.yang` becomes `openconfig_local_routing` as a module name.
@@ -83,6 +86,7 @@ from binding import openconfig_local_routing
 oclr = openconfig_local_routing()
 ```
 
+<hr>
 ### Creating a Data Instance <a name="create-instance"></a>
 
 At this point, the `oclr` object can be used to manipulate the YANG data tree that is expressed by the module.
@@ -158,6 +162,7 @@ except ValueError as m:
   print("Cannot set tag: %s" % m)
 ```
 
+<hr>
 ### Serialising a Data Instance <a name="serialising"></a>
 
 Clearly, populated PyangBind classes are not useful in and of themselves - the common use case is that they are sent to a external system (e.g., a router, or other NMS component). To achieve this the class hierarchy needs to be serialised into a format that can be sent to the remote entity. There are currently multiple ways to do this:
@@ -279,13 +284,11 @@ for prefix, route in new_oclr.local_routes.static_routes.static.iteritems():
 #		Prefix: 192.0.2.1/32, tag: 43
 ```
 
+<hr>
 ### Example Code <a name="example-code"></a>
-This worked example can be found in the `docs/example/oc-local-routing` directory.
+This worked example can be found in the `docs/example/oc-local-routing` directory on [GitHub]({{ site.pyangbind.repo }})
 
-## Further Documentation <a name="documentation"></a>
-
-Further information as to the implementation and usage of PyangBind can be found in the `docs/` directory -- the [README](docs/README.md) provides a list of documents and examples container therein.
-
+<hr>
 ## Licensing <a name="licensing"></a>
 ```
 Copyright 2015, Rob Shakir (rjs@rob.sh)
@@ -307,6 +310,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
+<hr>
 ## Acknowledgements <a name="acks"></a>
 * This project was initiated as part of BT plc. Network Architecture 'future network management' projects.
 * Ongoing development and support for this project is supported by [Jive Communications, Inc](www.jive.com).
