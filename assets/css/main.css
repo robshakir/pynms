@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans+Mono);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -605,9 +607,10 @@ body.home-intro .intro {
 .intro-subtitle {
   margin-bottom: 1em;
   font-size: 1.2em;
-  font-family: "Georgia", serif;
+  font-family: "Droid Serif", serif;
   font-weight: 500;
   font-style: italic;
+  color: #757474;
 }
 @media screen and (min-width: 1024px) {
   .intro-subtitle {
@@ -883,7 +886,7 @@ body.navigation-is-open .menu-burger {
 
 .post-header {
   margin-bottom: 2em;
-  padding: 5em 2em;
+  padding: 5rem 2rem;
 }
 
 .post-title,
@@ -925,20 +928,75 @@ body.navigation-is-open .menu-burger {
   font-style: italic;
 }
 
-.post-item {
+.post-itrem {
   padding-bottom: 2em;
   margin-bottom: 2em;
   border-bottom: 1px solid #f2f2f2;
 }
-.post-item .post-title {
+.post-itrem .post-title {
   margin-bottom: 10px;
 }
-.post-item .post-meta {
+.post-itrem .post-meta {
   opacity: .7;
-  font-size: .8rem;
+  font-size: .8rrem;
 }
-.post-item:last-child {
+.post-itrem:last-child {
   border: none;
+}
+
+.post ul {
+  list-style-type: circle;
+  margin-left: 2rem;
+}
+
+h2 {
+  margin-top: 1.25rem;
+}
+
+h3 {
+  margin-top: 1rem;
+}
+
+code {
+  font-family: 'Droid Sans Mono', monospace;
+  font-size: 0.8rem;
+}
+
+div.code {
+  font-family: 'Droid Sans Mono', monospace;
+  font-size: 0.8rem;
+}
+
+pre {
+  font-family: 'Droid Sans Mono', monospace;
+  font-size: 0.8rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  border: 1px #737373;
+  background-color: #e8e8e8;
+  padding: 0.75rem;
+}
+
+span.line-numbers {
+  padding-right: 1rem;
+}
+
+span.naviitem {
+  color: #757474;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  white-space: pre;
+}
+
+a.naviitem {
+  font-weight: 300;
+  color: #757474;
+}
+
+span.controlled-title {
+  font-size: 2.5rem;
 }
 
 .highlight {
