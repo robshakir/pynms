@@ -3,28 +3,16 @@
 import sys
 import os
 import time
-sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "common"))
 from grpc.beta import implementations
-import pynms_rpc_pb2
+from pynms_grpc.common import pynms_rpc_pb2
 from pyangbind.lib.serialise import pybindIETFJSONEncoder
-from nms_grpc.helpers import grpc_PyNMS_methods
+from pynms_grpc.common.nms_grpc.helpers import PyNMSGRPCMethods
 from pyangbind.lib.xpathhelper import YANGPathHelper
-import ybind
+from pynms_grpc.common import ybind
 import json
+from .client_common import PyNMSConfigOperation, PyNMSGRPCClientException
 
-class grpc_PyNMS_config_operation(object):
-  def __init__(self, path, obj, operation):
-    self.path = path
-    self.content = obj
-    self.operation = operation
-
-  def __str__(self):
-    return "%s -> %s" % (self.path, self.content.get(filter=True))
-
-class grpc_PyNMS_client_exception(Exception):
-  pass
-
-class grpc_PyNMS_client(object):
+class PyNMSGRPCClient(object):
   def __init__(self, server, port, timeout=2):
     self._server = server
     self._port = port
@@ -33,7 +21,7 @@ class grpc_PyNMS_client(object):
     try:
       self._timeout = int(timeout)
     except ValueError:
-      raise grpc_PyNMS_client_exception("Timeout specified must be an integer")
+      raise PyNMSGRPCClientException("Timeout specified must be an integer")
 
   def run(self):
     # TODO: probably should support more than the insecure channel
@@ -44,7 +32,7 @@ class grpc_PyNMS_client(object):
     try:
       msg_reqid = int(request_id)
     except ValueError:
-      raise grpc_PyNMS_client_exception("request_id must be an integer")
+      raise PyNMSGRPCClientException("request_id must be an integer")
 
     getreq = pynms_rpc_pb2.GetRequest(request_id=msg_reqid,
                                     encoding=pynms_rpc_pb2.JSON_IETF)
@@ -68,14 +56,14 @@ class grpc_PyNMS_client(object):
     try:
       msg_reqid = int(request_id)
     except ValueError:
-      raise grpc_PyNMS_client_exception("request_id must be an integer")
+      raise PyNMSGRPCClientException("request_id must be an integer")
 
     setreq = pynms_rpc_pb2.SetRequest(request_id=msg_reqid, encoding=pynms_rpc_pb2.JSON_IETF)
 
     req = 0
     for operation in operations:
-      if not isinstance(operation, grpc_PyNMS_config_operation):
-        raise grpc_PyNMS_client_exception("operations must be grpc_PyNMS_config_operation instances")
+      if not isinstance(operation, PyNMSConfigOperation):
+        raise PyNMSGRPCClientException("operations must be grpc_PyNMS_config_operation instances")
       setop = setreq.config_operation.add()
       setop.operation_id = "%s_%s" % (operation_id_base, req)
       if operation == 'UPDATE_CONFIG':
@@ -95,7 +83,7 @@ class grpc_PyNMS_client(object):
     return response
 
 if __name__ == '__main__':
-  client = grpc_PyNMS_client('localhost', 50051)
+  client = PyNMSGRPCClient('localhost', 50051)
   client.run()
   print client.get_paths(["/system/config/hostname", "/system/config/domain-name", "/system"],
                          request_id=0)
@@ -104,7 +92,7 @@ if __name__ == '__main__':
   s = system()
   s.config.hostname = "rtr42"
   s.config.domain_name = "gru.br"
-  s_oper = grpc_PyNMS_config_operation("/system", s, 'UPDATE_CONFIG')
+  s_oper = PyNMSConfigOperation("/system", s, 'UPDATE_CONFIG')
 
   print "BEFORE: "
   print client.get_paths(["/system/config"], request_id=0)
@@ -121,7 +109,7 @@ if __name__ == '__main__':
   for svr in [('svr1', "2001:db8::1"), ('svr2', "2001:db8::42")]:
     s = n.servers.server.add(svr[1])
     s.config.name = svr[0]
-  s_oper = grpc_PyNMS_config_operation("/system/ntp", n, 'UPDATE_CONFIG')
+  s_oper = PyNMSConfigOperation("/system/ntp", n, 'UPDATE_CONFIG')
   print client.set_paths([s_oper])
 
   print "AFTER: "

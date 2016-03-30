@@ -5,27 +5,26 @@ import os
 import time
 from pyangbind.lib.xpathhelper import YANGPathHelper
 from pyangbind.lib.serialise import pybindJSONEncoder
-sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "common"))
-import pynms_rpc_pb2
-from nms_grpc.helpers import grpc_PyNMS_methods
-import ybind
+from pynms_grpc.common import pynms_rpc_pb2
+from pynms_grpc.common.nms_grpc.helpers import PyNMSGRPCMethods
+from pynms_grpc.common import ybind
 
-class grpc_PyNMS_servicer(pynms_rpc_pb2.BetaOCPyNMSServicer):
+class GPRCPyNMSServicer(pynms_rpc_pb2.BetaOCPyNMSServicer):
   def __init__(self, path_helper):
     self._path_helper = path_helper
 
   def Get(self, request, context):
-    response_msg = grpc_PyNMS_methods.service_get_request(request, self._path_helper)
+    response_msg = PyNMSGRPCMethods.service_get_request(request, self._path_helper)
     return response_msg
 
   def Set(self, request, context):
-    response_msg = grpc_PyNMS_methods.service_set_request(request, self._path_helper)
+    response_msg = PyNMSGRPCMethods.service_set_request(request, self._path_helper)
     return response_msg
 
-class grpc_PyNMS_server(object):
+class PyNMSGRPCServer(object):
   def __init__(self, path_helper, port=50051):
     self._path_helper = path_helper
-    self._server = pynms_rpc_pb2.beta_create_OCPyNMS_server(grpc_PyNMS_servicer(self._path_helper))
+    self._server = pynms_rpc_pb2.beta_create_OCPyNMS_server(GPRCPyNMSServicer(self._path_helper))
     self._server.add_insecure_port("[::]:%s" % port)
 
   def serve(self, runtime=86400):
@@ -51,5 +50,5 @@ if __name__ == '__main__':
   ysys.config.hostname = "rtr0"
   ysys.config.domain_name = "lhr.uk"
 
-  netelem = grpc_PyNMS_server(path_helper=yph)
+  netelem = PyNMSGRPCServer(path_helper=yph)
   netelem.serve()

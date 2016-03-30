@@ -1,4 +1,4 @@
-
+* Install protobuf + gRPC: `brew install grpc google-protobuf`
 * Currently gRPC doesn't run on OS X, see https://github.com/grpc/grpc/issues/995.
 * Preferred development environment in Debian Jessie, with the following backports repo added:
     ```

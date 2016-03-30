@@ -1,13 +1,12 @@
 import sys
 import os
-sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "common"))
-import pynms_rpc_pb2
+import pynms_grpc.common.pynms_rpc_pb2
 from pyangbind.lib.serialise import pybindJSONEncoder, pybindIETFJSONEncoder, pybindJSONDecoder
 from pyangbind.lib.xpathhelper import YANGPathHelperException
 from pyangbind.lib.yangtypes import safe_name
 import json
 
-class grpc_PyNMS_methods(object):
+class PyNMSGRPCMethods(object):
 
   @staticmethod
   def service_get_request(request, path_helper):
