@@ -1,19 +1,11 @@
-* Install protobuf + gRPC: `brew install grpc google-protobuf`
-* Currently gRPC doesn't run on OS X, see https://github.com/grpc/grpc/issues/995.
-* Preferred development environment in Debian Jessie, with the following backports repo added:
-    ```
-deb http://http.debian.net/debian jessie-backports main
-    ```
+# PyNMS GRPC
+-- 
 
-* Install gRPC and create a virtualenv. The virtualenv is required because there are likely to be conflicts in dependencies between pip and other pkg managers:
-```
-# apt-get install libgrpc-dev
-# pip install virtualenv
-# virtualenv dev
-# source dev/bin/activate
-# pip install grpcio pyangbind      # sigh a bit at the pyangbind dependencies ;-)
-```
+This directory contains an example implementation of a gRPC client and server which utilises [PyangBind](http://pynms.io/pyangbind) to ingest YANG modules.
 
+The client has support for generating a transaction based on a set of changes that are to be made. Transactions can be directly generated from a PyangBind class hierarchy. 
 
+The server utilises the PyangBind `YANGPathHelper` and in-memory storage of the modules. It has support for transactions.
 
+The API between the client and server is generated based on Google's protobufs, the specification used for the API is a partial implementation of the OpenConfig RPC API, described in protobuf.
 
