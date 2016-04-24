@@ -10,8 +10,12 @@ RUN virtualenv /opt/virtualenv
 
 COPY supervisord.conf /etc/supervisord.conf
 COPY ./PyNMSGRPC-0.0.1-py2-none-any.whl /tmp
+COPY ./PyNMSYANGExamples-0.0.1-py2-none-any.whl /tmp
 RUN /opt/virtualenv/bin/pip install /tmp/PyNMSGRPC-0.0.1-py2-none-any.whl
+RUN /opt/virtualenv/bin/pip install /tmp/PyNMSYANGExamples-0.0.1-py2-none-any.whl
 RUN rm /tmp/*.whl
+RUN /opt/virtualenv/bin/pip install pyaml
+COPY server /opt/pynms_server
 
 EXPOSE 50051
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]

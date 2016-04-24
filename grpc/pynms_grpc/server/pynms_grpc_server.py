@@ -6,19 +6,31 @@ import time
 from pyangbind.lib.xpathhelper import YANGPathHelper
 from pyangbind.lib.serialise import pybindJSONEncoder
 from pynms_grpc.common import pynms_rpc_pb2
-from pynms_grpc.common.nms_grpc.helpers import PyNMSGRPCMethods
-from pynms_grpc.common import ybind
+from pynms_grpc.server.server_common import PyNMSServerGRPCMethods
 
 class GPRCPyNMSServicer(pynms_rpc_pb2.BetaOCPyNMSServicer):
   def __init__(self, path_helper):
+    f = open("/tmp/foo1", 'w')
+    f.write("server init\n")
+    f.flush()
+    f.close()
     self._path_helper = path_helper
 
   def Get(self, request, context):
-    response_msg = PyNMSGRPCMethods.service_get_request(request, self._path_helper)
+    f = open("/tmp/foo2", 'w')
+    f.write("server get req -> %s\n" % request)
+    f.flush()
+    f.close()
+    f = open("/tmp/foo2.5", 'w')
+    f.write("%s" % str(PyNMSServerGRPCMethods.service_get_request(request, self._path_helper)))
+    f.write("\n")
+    f.flush()
+    f.close()
+    response_msg = PyNMSServerGRPCMethods.service_get_request(request, self._path_helper)
     return response_msg
 
   def Set(self, request, context):
-    response_msg = PyNMSGRPCMethods.service_set_request(request, self._path_helper)
+    response_msg = PyNMSServerGRPCMethods.service_set_request(request, self._path_helper)
     return response_msg
 
 class PyNMSGRPCServer(object):
@@ -34,21 +46,3 @@ class PyNMSGRPCServer(object):
         time.sleep(86400)
     except KeyboardInterrupt:
       self._server.stop(0)
-
-if __name__ == '__main__':
-  # create a path helper instance to be used by the server
-  yph = YANGPathHelper()
-
-  # set up a basic device
-  for ymod in ["simple_device"]:
-    ymod_cls = getattr(ybind, ymod, None)
-    if ymod is None:
-      raise AttributeError("Cannot load module %s from bindings" % ymod)
-    ymod_cls(path_helper=yph)
-
-  ysys = yph.get_unique("/system")
-  ysys.config.hostname = "rtr0"
-  ysys.config.domain_name = "lhr.uk"
-
-  netelem = PyNMSGRPCServer(path_helper=yph)
-  netelem.serve()

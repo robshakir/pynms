@@ -9,8 +9,11 @@ RUN mkdir -p /opt
 RUN virtualenv /opt/virtualenv
 
 COPY ./PyNMSGRPC-0.0.1-py2-none-any.whl /tmp
+COPY ./PyNMSYANGExamples-0.0.1-py2-none-any.whl /tmp
 RUN /opt/virtualenv/bin/pip install /tmp/PyNMSGRPC-0.0.1-py2-none-any.whl
+RUN /opt/virtualenv/bin/pip install /tmp/PyNMSYANGExamples-0.0.1-py2-none-any.whl
 RUN rm /tmp/*.whl
+COPY ./client /opt/pynms_client
+RUN echo "source /opt/virtualenv/bin/activate" >> /root/.bashrc
 
-EXPOSE 50051
 CMD ["/bin/sleep", "86400"]

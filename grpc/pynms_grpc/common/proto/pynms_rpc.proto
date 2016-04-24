@@ -52,44 +52,35 @@ service OCPyNMS {
 
 }
 
-// The submessage utilised for get requests within a larger
-// GetRequest
-message GetRequestOperation {
-	string operation_id = 1;
-	GetDataCommand operation = 2;
-	string path = 3;
-}
-
 // Message sent by the client to the server when a request is
 // made.
 message GetRequest {
 	uint64 request_id = 1;
 	EncodingType encoding = 2;
 	string prefix = 3;
-	repeated GetRequestOperation get_request = 4;
+	GetDataCommand data_type = 4;
+	repeated string path = 5;
 }
 
-// The submessage used by the server to respond to a get request
-// from a client.
 message GetResponseOperation {
-	string operation_id = 1;
-	string path = 2;
-	string value = 3;
-	RPCResponse response_code = 4;
-	string message = 5;
+	string path = 1;
+	string value = 2;
 }
 
 // The message used by the server in response to a get request.
 message GetResponse {
 	uint64 request_id = 1;
 	repeated GetResponseOperation response = 2;
+	RPCResponse response_code = 3;
+	string message = 4;
 }
 
 // Submessage used for a set operation - multiple SetRequestOperation
 // commands can exist per SetRequest message.
 message SetRequestOperation {
-	string operation_id = 1;
-	SetDataCommand operation = 2;
+	// TODO: why did we lose operation id here?
+	//string operation_id = 1;
+	SetDataCommand opcode = 1;
 	string path = 3;
 	string value = 4;
 }
@@ -97,23 +88,16 @@ message SetRequestOperation {
 // The message that is used by a client for a set request
 message SetRequest {
 	uint64 request_id = 1;
-	bool transaction = 2;
-	EncodingType encoding = 3;
-	string prefix = 4;
-	repeated SetRequestOperation config_operation = 5;
-}
-
-// The submessage that is used in a response to each SetMessageOperation
-// submessage in a SetRequest
-message SetResponseOperation {
-	string operation_id = 1;
-	RPCResponse response_code = 2;
-	string message = 3;
+	//bool transaction = 2;
+	EncodingType encoding = 2;
+	string prefix = 3;
+	repeated SetRequestOperation operation = 5;
 }
 
 // The message that is returned by the server in response
 // to a set request.
 message SetResponse {
 	uint64 request_id = 1;
-	repeated SetResponseOperation response = 2;
+	RPCResponse response_code = 2;
+	string message = 3;
 }
