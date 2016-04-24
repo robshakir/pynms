@@ -1,0 +1,7 @@
+modules:
+    # Each module is specified with:
+    #   - yang_module:    The name of the YANG module that is being loaded
+    #   - python_module:  The name of the Python module that the bindings have
+    #                     been generated within.
+  - yang_module:    simple-device
+    python_module:  pynms_yang_examples.bindings

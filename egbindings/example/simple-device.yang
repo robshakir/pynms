@@ -1,0 +1,99 @@
+module simple-device {
+  yang-version "1";
+
+  namespace "http://pynms.io/yang/simple-device";
+  prefix "sdev";
+
+  organization "PyNMS";
+  contact "yang@pynms.io";
+
+  description
+    "Simple model showing how to bind a gRPC server
+    to a PyangBind generated class";
+
+  revision "2016-03-23" {
+    description
+      "example revision";
+  }
+
+  // Simplified version of the openconfig-system model
+
+  grouping system-root_config {
+    leaf hostname {
+      type string;
+      description
+        "The system's hostname";
+    }
+
+    leaf domain-name {
+      type string;
+      description
+        "The system's domain to make a FQDN";
+    }
+  }
+
+  grouping system-ntp_config {
+    leaf enabled {
+      type boolean;
+    }
+  }
+
+  grouping system-ntp-servers_config {
+    leaf address {
+      // simplified inet6 address expression
+      type string {
+        pattern "[a-f0-9:]+";
+      }
+    }
+
+    leaf name {
+      type string;
+    }
+  }
+
+  grouping system-top {
+    container system {
+      container config {
+        uses system-root_config;
+      }
+      container state {
+        config false;
+        uses system-root_config;
+      }
+
+      container ntp {
+        container config {
+          uses system-ntp_config;
+        }
+
+        container state {
+          config false;
+          uses system-ntp_config;
+        }
+
+        container servers {
+          list server {
+            key "address";
+
+            leaf address {
+              type leafref {
+                path "../config/address";
+              }
+            }
+
+            container config {
+              uses system-ntp-servers_config;
+            }
+
+            container state {
+              config false;
+              uses system-ntp-servers_config;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  uses system-top;
+}
