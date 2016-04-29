@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-PACKAGE_VER="1"
+PACKAGE_VER="2"
 RELEASE_VER="0.0.1"
 THISDIR="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PARENTDIR=$THISDIR/../..

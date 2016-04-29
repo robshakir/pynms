@@ -76,7 +76,44 @@ def main():
                     },
                     {
                       "type": "REMOTE",
+                      "path": OC + "interfaces/openconfig-if-ip.yang",
+                      "dir": "openconfig"
+                    },
+                    {
+                      "type": "REMOTE",
+                      "path": OC + "interfaces/openconfig-if-ethernet.yang",
+                      "dir": "openconfig"
+                    },
+                    {
+                      "type": "REMOTE",
+                      "path": OC + "interfaces/openconfig-if-ip-ext.yang",
+                      "dir": "openconfig"
+                    },
+                    {
+                      "type": "REMOTE",
+                      "path": OC + "vlan/openconfig-vlan.yang",
+                      "dir": "openconfig"
+                    },
+                    {
+                      "type": "REMOTE",
+                      "path": OC + "vlan/openconfig-vlan-types.yang",
+                      "dir": "include",
+                      "build": False,
+                    },
+                    {
+                      "type": "REMOTE",
+                      "path": OC + "interfaces/openconfig-if-aggregate.yang",
+                      "dir": "openconfig"
+                    },
+                    {
+                      "type": "REMOTE",
                       "path": RFC + "ietf-inet-types.yang",
+                      "dir": "include",
+                      "build": False,
+                    },
+                    {
+                      "type": "REMOTE",
+                      "path": RFC + "iana-if-type.yang",
                       "dir": "include",
                       "build": False,
                     },

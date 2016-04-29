@@ -5,3 +5,5 @@ modules:
     #                     been generated within.
   - yang_module:    simple-device
     python_module:  pynms_yang_examples.bindings
+  - yang_module:    openconfig-interfaces
+    python_module:  pynms_yang_examples.bindings

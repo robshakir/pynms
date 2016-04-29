@@ -34,34 +34,6 @@ def main():
   print "Hostname: %s" % client.get_paths(["/system/config/hostname"], 3).response[0].value
   print "Domain Name: %s" % client.get_paths(["/system/config/domain-name"], 4).response[0].value
 
-
-  # from pynms_grpc.common.ybind.system import system
-  # s = system()
-  # s.config.hostname = "rtr42"
-  # s.config.domain_name = "gru.br"
-  # s_oper = PyNMSConfigOperation("/system", s, 'UPDATE_CONFIG')
-
-  # print "BEFORE: "
-  # print client.get_paths(["/system/config"], request_id=0)
-  # print client.set_paths([s_oper])
-  # print "AFTER: "
-  # print client.get_paths(["/system/config"], request_id=1)
-
-  # print "BEFORE: "
-  # print client.get_paths(["/system/ntp"], request_id=2)
-
-  # from pynms_grpc.common.ybind.system.ntp import ntp
-  # n = ntp()
-  # n.config.enabled = True
-  # for svr in [('svr1', "2001:db8::1"), ('svr2', "2001:db8::42")]:
-  #   s = n.servers.server.add(svr[1])
-  #   s.config.name = svr[0]
-  # s_oper = PyNMSConfigOperation("/system/ntp", n, 'UPDATE_CONFIG')
-  # print client.set_paths([s_oper])
-
-  # print "AFTER: "
-  # print client.get_paths(["/system/ntp"], request_id=3)
-
   sys.exit(0)
 
 if __name__ == '__main__':
