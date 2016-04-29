@@ -9,10 +9,14 @@ from pyangbind.lib.serialise import pybindJSONEncoder
 from pynms_grpc.common import pynms_rpc_pb2
 from pynms_grpc.server.server_common import PyNMSServerGRPCMethods
 
-class GPRCPyNMSServicer(pynms_rpc_pb2.BetaOCPyNMSServicer):
+class GRPCPyNMSServicer(pynms_rpc_pb2.BetaOCPyNMSServicer):
   def __init__(self, path_helper, logger=None):
     self._path_helper = path_helper
-    self._logger = logger
+    if logger is not None:
+      self._logger = logger
+    else:
+      self._logger = logging.getLogger('GRPCPyNMSServicer')
+      self._logger.addHandler(logging.NullHandler())
     self._logger.debug("Created PyNMS gRPC servicer")
 
   def Get(self, request, context):
@@ -40,7 +44,7 @@ class PyNMSGRPCServer(object):
     self._logger.addHandler(fh)
     self._logger.info("pynms gRPC server started")
 
-    self._server = pynms_rpc_pb2.beta_create_OCPyNMS_server(GPRCPyNMSServicer(self._path_helper, logger=self._logger))
+    self._server = pynms_rpc_pb2.beta_create_OCPyNMS_server(GRPCPyNMSServicer(self._path_helper, logger=self._logger))
     self._server.add_insecure_port("[::]:%s" % port)
 
   def serve(self, runtime=86400):

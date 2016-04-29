@@ -6,9 +6,12 @@ class PyNMSGRPCClientException(Exception):
   pass
 
 class PyNMSConfigOperation(object):
-  def __init__(self, obj, method='UPDATE_CONFIG'):
+  def __init__(self, obj, method):
     self.path = obj._yang_path()
-    self.content = obj
+    if method != 'DELETE_CONFIG':
+      self.content = obj
+    else:
+      self.content = str()
     self.method = method
 
   def __str__(self):
@@ -29,10 +32,15 @@ class PyNMSClientGRPCMethods(object):
       if not isinstance(operation, PyNMSConfigOperation):
         raise PyNMSGRPCClientException("operations must be PyNMSConfigOperation instances")
       setop = setreq.operation.add()
-      if operation == 'UPDATE_CONFIG':
+
+      if operation.method == 'UPDATE_CONFIG':
         setop.opcode = pynms_rpc_pb2.UPDATE_CONFIG
+      elif operation.method == 'REPLACE_CONFIG':
+        setop.opcode = pynms_rpc_pb2.REPLACE_CONFIG
+      elif operation.method == 'DELETE_CONFIG':
+        setop.opcode = pynms_rpc_pb2.DELETE_CONFIG
       else:
-        # only support sending UPDATE_CONFIG right now
+        # default to UPDATE_CONFIG
         setop.opcode = pynms_rpc_pb2.UPDATE_CONFIG
       setop.path = operation.path
 

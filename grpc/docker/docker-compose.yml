@@ -1,13 +1,13 @@
 version: '2'
 services:
     server:
-        image: pynms/grpc_server:0.0.1p2
+        image: pynms/grpc_server:0.0.1p3
         container_name: pynms-grpc-server
         ports:
             - 50051
         network_mode: "host"
     client:
-        image: pynms/grpc_client:0.0.1p2
+        image: pynms/grpc_client:0.0.1p3
         container_name: pynms-grpc-client
         network_mode: "service:server"
         depends_on:

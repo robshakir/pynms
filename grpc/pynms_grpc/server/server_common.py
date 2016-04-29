@@ -15,6 +15,7 @@ class PyNMSServerGRPCMethods(object):
     generate_element = False
     if encoding == 'JSON_IETF':
       encoder = pybindIETFJSONEncoder
+      generate_element = True
     elif encoding == 'JSON_PYBIND':
       encoder = pybindJSONEncoder
 
@@ -25,7 +26,11 @@ class PyNMSServerGRPCMethods(object):
     logger.debug("Generate element was %s" % generate_element)
 
     if generate_element is True:
-      tmp_obj = [pybindIETFJSONEncoder.generate_element(obj, flt=True) if hasattr(i, "_pyangbind_elements") else i for i in objects]
+      try:
+        tmp_obj = [pybindIETFJSONEncoder.generate_element(i, flt=True) for i in objects]
+      except Exception as e:
+        logger.debug("Received an exception whilst generating elements: %s: %s" % (type(e), str(e)))
+        raise Exception(str(e))
       objects = tmp_obj
     else:
       tmp_obj = [i.get(filter=True) for i in objects]
@@ -148,12 +153,17 @@ class PyNMSServerGRPCMethods(object):
                                 'message': 'Invalid JSON'
                               })
           break
+        except Exception as e:
+          logger.debug("Hit unknown exception %s @ %s:152" % (str(e), __file__))
+          break
 
         overwrite = True if pynms_rpc_pb2.SetDataCommand.Name(operation.opcode) == 'REPLACE_CONFIG' else False
 
         try:
           decoder(parsed_json, None, None, obj=existing_obj, path_helper=path_helper, overwrite=overwrite)
         except ValueError as e:
+          logger.debug("Hit a ValueError when loading the JSON for %s (specified to %s)" % (operation.path, existing_obj._path()))
+          logger.debug("ValueError: %s" % str(msg))
           error_paths.append({
                                 'path': operation.path,
                                 'error': pynms_rpc_pb2.INVALID_CONFIGURATION,
@@ -161,21 +171,42 @@ class PyNMSServerGRPCMethods(object):
                               })
           break
         except AttributeError as msg:
+          logger.debug("Hit a AttributeError when loading the JSON for %s (specified to %s)" % (operation.path, existing_obj._path()))
+          logger.debug("AttributeError: %s" % str(msg))
           error_paths.append({
                                 'path': operation.path,
                                 'error': pynms_rpc_pb2.INVALID_CONFIGURATION,
                                 'message': 'Invalid configuration'
                               })
           break
+        except KeyError as msg:
+          logger.debug("Hit a KeyError when loading the JSON for %s" % (operation.path))
+          error_paths.append({
+                                'path': operation.path,
+                                'error': pynms_rpc_pb2.INVALID_CONFIGURATION,
+                                'message': 'Attempted to update an existing leaf entry',
+            })
+        except Exception as e:
+          logger.debug("Hit unknown exception %s @ %s:152" % (str(e), __file__))
+          break
 
-      elif pynms_rpc_pb2.SetDataCommand.Name(operation.operation) in ['DELETE_CONFIG']:
-        if hasattr("delete", existing_obj._parent):
-          keyval = existing_obj._parent._extract_key(existing_obj)
-          # error handling TODO
-          existing_obj._parent.delete(keyval)
+      elif pynms_rpc_pb2.SetDataCommand.Name(operation.opcode) in ['DELETE_CONFIG']:
+        if "[" in existing_obj._path()[-1]:
+          path = existing_obj._path()[:-1]
+          containing_obj = path_helper.get_unique(path)
+          parent = getattr(containing_obj,existing_obj._path()[-1].split("[")[0])
+        else:
+          parent = existing_obj._parent
+
+        if hasattr(parent, "delete"):
+          keyval = parent._extract_key(existing_obj)
+          # todo, error handling
+          if hasattr(keyval, "_get_ptr"):
+            keyval = keyval._get_ptr()
+          parent.delete(keyval)
         else:
           # if the value is not a list entry
-          unset_method = getattr(existing_obj._parent, "_unset_%s" % safe_name(operation.path.split("/")[-1]), None)
+          unset_method = getattr(parent, "_unset_%s" % safe_name(operation.path.split("/")[-1]), None)
           if unset_method is None:
             error_paths.append({
                                   'path': operation.path,
