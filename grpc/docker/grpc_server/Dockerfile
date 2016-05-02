@@ -18,6 +18,6 @@ RUN /opt/virtualenv/bin/pip install pyaml
 COPY server /opt/pynms_server
 
 EXPOSE 50051
-#CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
-CMD ["/bin/sleep", "86400"]
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+#CMD ["/bin/sleep", "86400"]
 
