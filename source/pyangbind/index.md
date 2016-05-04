@@ -14,7 +14,7 @@ PyangBind's documentation consists is broken down in the following:
   * [Generic Methods](/pyangbind/generic_methods) -- the methods that the PyangBind meta-class defines, as well as methods that are added for YANG-specific types such as `container` and `list`.
   * [Errors](/pyangbind/errors) -- explains the errors that PyangBind classes will throw.
   * [Serialisation and Deserialisation](/pyangbind/serialisation) -- covers how PyangBind's `lib.serialise` and `lib.pybindJSON` classes can be used to output and load instances of data that have been created with a program using PyangBind's classes.
-  * [XPathHelper](/pyangbind/xpathhelper) -- provides information relating to PyangBind's optional `XPathHelper` classes which are used to resolve XPATH expressions and can be used to traverse a data tree consisting on multiple models.
+  * [XPathHelper](/pyangbind/xpath) -- provides information relating to PyangBind's optional `XPathHelper` classes which are used to resolve XPATH expressions and can be used to traverse a data tree consisting on multiple models.
   * [Extension Methods](/pyangbind/extmethods) -- usage and intention of the `extmethods` functionality in PyangBind
   * [RPC](/pyangbind/rpc) -- explains PyangBind's support for the YANG `rpc` statement, and how one may use this functionality.
   * [YANG](/pyangbind/yang) -- gives an overview of how various YANG language features are supported in PyangBind.
