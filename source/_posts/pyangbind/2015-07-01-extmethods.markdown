@@ -2,7 +2,7 @@
 project: PyangBind
 layout: pybdoc
 title:  "Extension Methods"
-permalink:  "extmethods"
+permalink:  "pyangbind/extmethods"
 categories: pyangbind extensions extmethods yang
 intro: "PyangBind offers functionality to allow custom methods to be bound to a particular PyangBind object in the data tree through the use of the `extmethods` dictionary. The format expected, and use of this functionality is outlined herein."
 shortname: Extension Methods

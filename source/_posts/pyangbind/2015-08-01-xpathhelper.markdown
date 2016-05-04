@@ -2,7 +2,7 @@
 project: PyangBind
 layout: pybdoc
 title:  "XPATH and Data Tree Structure"
-permalink:  "xpath"
+permalink:  "pyangbind/xpath"
 categories: pyangbind yang
 shortname: XPATH
 intro: "YANG data models use XPATH to describe paths between nodes - for reference purposes, and inherently make up part of a data tree structure that can be queried using XPATH. PyangBind provides a helper class which can be used to resolve references, as well as to provide external components means to access particular paths."

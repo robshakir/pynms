@@ -2,7 +2,7 @@
 project: PyangBind
 layout: pybdoc
 title:  "Serialisation and Deserialisation of YANG Modelled Data"
-permalink:  "serialisation"
+permalink:  "pyangbind/serialisation"
 categories: pyangbind yang json ietf-json
 shortname: Serialisation
 intro: "To import data instances from an external system, or export data to another device - for example, a network element - PyangBind objects need to be serialised or deserialised. This document describes the encoding formats that PyangBind supports, and their usage."

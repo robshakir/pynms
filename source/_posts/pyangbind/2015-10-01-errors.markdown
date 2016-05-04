@@ -2,7 +2,7 @@
 project: PyangBind
 layout: pybdoc
 title:  "Errors thrown by Classes"
-permalink:  "errors"
+permalink:  "pyangbind/errors"
 categories: pyangbind errors yang
 intro: "PyangBind classes raise specific errors when data does not correlate to the data model that is described in the source YANG file. The errors that a consuming program is likely to want to catch and handle are explained in this document."
 shortname: Errors

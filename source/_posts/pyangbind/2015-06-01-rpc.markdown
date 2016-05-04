@@ -2,7 +2,7 @@
 project: PyangBind
 layout: pybdoc
 title:  "RPCs in PyangBind"
-permalink:  "rpc"
+permalink:  "pyangbind/rpc"
 categories: pyangbind rpc yang
 intro: "YANG can be used to describe the input and output parameters of an RPC -- this document provids an overview of how to generate bindings for a YANG RPC using PyangBind."
 shortname: RPCs

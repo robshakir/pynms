@@ -2,7 +2,7 @@
 project: PyangBind
 layout: pybdoc
 title:  "Python to YANG Mapping"
-permalink:  "yang"
+permalink:  "pyangbind/yang"
 categories: pyangbind yang
 shortname: YANG Mapping
 intro: "Further information as to the mapping of YANG parameters into PyangBind classes."
