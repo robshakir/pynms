@@ -116,14 +116,14 @@ These extensions can then be consumed by the program manipulating the classes.
 
 By default, PyangBind will ignore all RPC definitions within a YANG file. When `--build-rpcs` is specified, then each RPC, with its corresponding `input` and `output` containers will be generated into a class which corresponds to `<modulename>_rpc` at the root of the data tree.
 
-See the [RPC documentation](rpc.md) for more detail as to the usage of generated RPC classes.
+See the [RPC documentation](/pyangbind/rpc) for more detail as to the usage of generated RPC classes.
 
 <hr>
 ## Extended Methods <a name="extmethods"></a>
 
 When the `--use-extmethods` command-line option is specified, PyangBind will propagate the dictionary that is provided as the option `extmethods=` argument during class initialisation to the children objects. If this option is not specified, this option is always `False`.
 
-See the [Extension Methods](extmethods.md) documentation for detail of this functionality.
+See the [Extension Methods](/pyangbind/extmethods) documentation for detail of this functionality.
 
 <hr>
 ## YANG Module Arguments <a name="yangmods"></a>

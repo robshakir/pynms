@@ -24,7 +24,7 @@ PyangBind's documentation consists is broken down in the following:
 
 In order to allow new users to quickly see how PyangBind might work for them, some examples are included in this directory:
 
-  * [`example/oc-local-routing`]({{ '/tree/master/docs/example/oc-local-routing' | prepend: site.pyangbind.repo }}) uses the OpenConfig `local-routing` module an example and shows how one can build static routes using this module. The [Getting Started](../getting_started) documentation walks through this example.
+  * [`example/oc-local-routing`]({{ '/tree/master/docs/example/oc-local-routing' | prepend: site.pyangbind.repo }}) uses the OpenConfig `local-routing` module an example and shows how one can build static routes using this module. The [Getting Started](/pyangbind/getting_started) documentation walks through this example.
   * [`example/simple-rpc`]({{ '/tree/master/docs/example/simple-rpc' | prepend: site.pyangbind.repo }}) shows how a YANG `rpc` definition can be manipulated when PyangBind classes are generated for it. The RPC document provides further explanation of this example.
   * [`example/simple-serialise`]({{ '/tree/master/docs/example/simple-serialise' | prepend: site.pyangbind.repo }}) shows how PyangBind's serialisation and deserialisation capabilities work. The serialisation document walks through this example.
 
