@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='pynms_rpc.proto',
   package='pynms_api',
   syntax='proto3',
-  serialized_pb=_b('\n\x0fpynms_rpc.proto\x12\tpynms_api\x1a\x19google/protobuf/any.proto\"\x97\x01\n\nGetRequest\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12)\n\x08\x65ncoding\x18\x02 \x01(\x0e\x32\x17.pynms_api.EncodingType\x12\x0e\n\x06prefix\x18\x03 \x01(\t\x12,\n\tdata_type\x18\x04 \x01(\x0e\x32\x19.pynms_api.GetDataCommand\x12\x0c\n\x04path\x18\x05 \x03(\t\"3\n\x14GetResponseOperation\x12\x0c\n\x04path\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x94\x01\n\x0bGetResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x31\n\x08response\x18\x02 \x03(\x0b\x32\x1f.pynms_api.GetResponseOperation\x12-\n\rresponse_code\x18\x03 \x01(\x0e\x32\x16.pynms_api.RPCResponse\x12\x0f\n\x07message\x18\x04 \x01(\t\"]\n\x13SetRequestOperation\x12)\n\x06opcode\x18\x01 \x01(\x0e\x32\x19.pynms_api.SetDataCommand\x12\x0c\n\x04path\x18\x03 \x01(\t\x12\r\n\x05value\x18\x04 \x01(\t\"\x8e\x01\n\nSetRequest\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12)\n\x08\x65ncoding\x18\x02 \x01(\x0e\x32\x17.pynms_api.EncodingType\x12\x0e\n\x06prefix\x18\x03 \x01(\t\x12\x31\n\toperation\x18\x05 \x03(\x0b\x32\x1e.pynms_api.SetRequestOperation\"a\n\x0bSetResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12-\n\rresponse_code\x18\x02 \x01(\x0e\x32\x16.pynms_api.RPCResponse\x12\x0f\n\x07message\x18\x03 \x01(\t*.\n\x0c\x45ncodingType\x12\r\n\tJSON_IETF\x10\x00\x12\x0f\n\x0bJSON_PYBIND\x10\x64*L\n\x0eGetDataCommand\x12\x0b\n\x07GET_ALL\x10\x00\x12\x0e\n\nGET_CONFIG\x10\x01\x12\x0f\n\x0bGET_OPSTATE\x10\x02\x12\x0c\n\x08GET_OPER\x10\x03*J\n\x0eSetDataCommand\x12\x11\n\rUPDATE_CONFIG\x10\x00\x12\x12\n\x0eREPLACE_CONFIG\x10\x01\x12\x11\n\rDELETE_CONFIG\x10\x02*\xb2\x01\n\x0bRPCResponse\x12\x06\n\x02OK\x10\x00\x12\x07\n\x03NOK\x10\x01\x12\x14\n\x10UNSUPPORTED_PATH\x10\x02\x12\x10\n\x0cINVALID_PATH\x10\x03\x12\x19\n\x15INVALID_CONFIGURATION\x10\x04\x12\x18\n\x14UNSUPPORTED_INTERVAL\x10\x05\x12\x1b\n\x17INVALID_SUBSCRIPTION_ID\x10\x06\x12\x18\n\x14UNSUPPORTED_ENCODING\x10\x07\x32u\n\x07OCPyNMS\x12\x34\n\x03Get\x12\x15.pynms_api.GetRequest\x1a\x16.pynms_api.GetResponse\x12\x34\n\x03Set\x12\x15.pynms_api.SetRequest\x1a\x16.pynms_api.SetResponseb\x06proto3')
+  serialized_pb=_b('\n\x0fpynms_rpc.proto\x12\tpynms_api\x1a\x19google/protobuf/any.proto\"\x97\x01\n\nGetRequest\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12)\n\x08\x65ncoding\x18\x02 \x01(\x0e\x32\x17.pynms_api.EncodingType\x12\x0e\n\x06prefix\x18\x03 \x01(\t\x12,\n\tdata_type\x18\x04 \x01(\x0e\x32\x19.pynms_api.GetDataCommand\x12\x0c\n\x04path\x18\x05 \x03(\t\"3\n\x14GetResponseOperation\x12\x0c\n\x04path\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x94\x01\n\x0bGetResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x31\n\x08response\x18\x02 \x03(\x0b\x32\x1f.pynms_api.GetResponseOperation\x12-\n\rresponse_code\x18\x03 \x01(\x0e\x32\x16.pynms_api.RPCResponse\x12\x0f\n\x07message\x18\x04 \x01(\t\"]\n\x13SetRequestOperation\x12)\n\x06opcode\x18\x01 \x01(\x0e\x32\x19.pynms_api.SetDataCommand\x12\x0c\n\x04path\x18\x03 \x01(\t\x12\r\n\x05value\x18\x04 \x01(\t\"\x8e\x01\n\nSetRequest\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12)\n\x08\x65ncoding\x18\x02 \x01(\x0e\x32\x17.pynms_api.EncodingType\x12\x0e\n\x06prefix\x18\x03 \x01(\t\x12\x31\n\toperation\x18\x05 \x03(\x0b\x32\x1e.pynms_api.SetRequestOperation\"a\n\x0bSetResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12-\n\rresponse_code\x18\x02 \x01(\x0e\x32\x16.pynms_api.RPCResponse\x12\x0f\n\x07message\x18\x03 \x01(\t\"\xaf\x02\n\x10SubscribeRequest\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12;\n\x0b\x64\x65stination\x18\x02 \x03(\x0b\x32&.pynms_api.SubscribeRequestDestination\x12.\n\x05paths\x18\x03 \x03(\x0b\x32\x1f.pynms_api.SubscribeRequestPath\x12\x17\n\x0fsample_interval\x18\x04 \x01(\x04\x12\x1a\n\x12heartbeat_interval\x18\x05 \x01(\x04\x12\x1a\n\x12suppress_redundant\x18\x06 \x01(\x08\x12\x1e\n\x16originated_qos_marking\x18\x07 \x01(\r\x12)\n\x08\x65ncoding\x18\x08 \x01(\x0e\x32\x17.pynms_api.EncodingType\"<\n\x1bSubscribeRequestDestination\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x0c\n\x04port\x18\x02 \x01(\r\"<\n\x14SubscribeRequestPath\x12\x0c\n\x04path\x18\x01 \x01(\t\x12\x16\n\x0e\x65xclude_filter\x18\x02 \x01(\t\"\x80\x01\n\x11SubscribeResponse\x12\x17\n\x0fsubscription_id\x18\x01 \x01(\r\x12\x12\n\nrequest_id\x18\x02 \x01(\x04\x12-\n\rresponse_code\x18\x03 \x01(\x0e\x32\x16.pynms_api.RPCResponse\x12\x0f\n\x07message\x18\x04 \x01(\t\"O\n\x17SubscribeUpdateResponse\x12\x17\n\x0fsubscription_id\x18\x01 \x01(\r\x12\x0c\n\x04path\x18\x02 \x01(\t\x12\r\n\x05value\x18\x03 \x01(\t\"\xa2\x01\n\x0fSubscribeUpdate\x12\x44\n\x16subscribe_update_async\x18\x01 \x01(\x0b\x32\".pynms_api.SubscribeUpdateResponseH\x00\x12=\n\x15subscribe_update_sync\x18\x02 \x01(\x0b\x32\x1c.pynms_api.SubscribeResponseH\x00\x42\n\n\x08response*.\n\x0c\x45ncodingType\x12\r\n\tJSON_IETF\x10\x00\x12\x0f\n\x0bJSON_PYBIND\x10\x64*L\n\x0eGetDataCommand\x12\x0b\n\x07GET_ALL\x10\x00\x12\x0e\n\nGET_CONFIG\x10\x01\x12\x0f\n\x0bGET_OPSTATE\x10\x02\x12\x0c\n\x08GET_OPER\x10\x03*J\n\x0eSetDataCommand\x12\x11\n\rUPDATE_CONFIG\x10\x00\x12\x12\n\x0eREPLACE_CONFIG\x10\x01\x12\x11\n\rDELETE_CONFIG\x10\x02*\xb2\x01\n\x0bRPCResponse\x12\x06\n\x02OK\x10\x00\x12\x07\n\x03NOK\x10\x01\x12\x14\n\x10UNSUPPORTED_PATH\x10\x02\x12\x10\n\x0cINVALID_PATH\x10\x03\x12\x19\n\x15INVALID_CONFIGURATION\x10\x04\x12\x18\n\x14UNSUPPORTED_INTERVAL\x10\x05\x12\x1b\n\x17INVALID_SUBSCRIPTION_ID\x10\x06\x12\x18\n\x14UNSUPPORTED_ENCODING\x10\x07\x32\xc1\x01\n\x07OCPyNMS\x12\x34\n\x03Get\x12\x15.pynms_api.GetRequest\x1a\x16.pynms_api.GetResponse\x12\x34\n\x03Set\x12\x15.pynms_api.SetRequest\x1a\x16.pynms_api.SetResponse\x12J\n\tSubscribe\x12\x1b.pynms_api.SubscribeRequest\x1a\x1c.pynms_api.SubscribeResponse(\x01\x30\x01\x62\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_any__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -43,8 +43,8 @@ _ENCODINGTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=754,
-  serialized_end=800,
+  serialized_start=1561,
+  serialized_end=1607,
 )
 _sym_db.RegisterEnumDescriptor(_ENCODINGTYPE)
 
@@ -74,8 +74,8 @@ _GETDATACOMMAND = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=802,
-  serialized_end=878,
+  serialized_start=1609,
+  serialized_end=1685,
 )
 _sym_db.RegisterEnumDescriptor(_GETDATACOMMAND)
 
@@ -101,8 +101,8 @@ _SETDATACOMMAND = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=880,
-  serialized_end=954,
+  serialized_start=1687,
+  serialized_end=1761,
 )
 _sym_db.RegisterEnumDescriptor(_SETDATACOMMAND)
 
@@ -148,8 +148,8 @@ _RPCRESPONSE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=957,
-  serialized_end=1135,
+  serialized_start=1764,
+  serialized_end=1942,
 )
 _sym_db.RegisterEnumDescriptor(_RPCRESPONSE)
 
@@ -464,6 +464,300 @@ _SETRESPONSE = _descriptor.Descriptor(
   serialized_end=752,
 )
 
+
+_SUBSCRIBEREQUEST = _descriptor.Descriptor(
+  name='SubscribeRequest',
+  full_name='pynms_api.SubscribeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='pynms_api.SubscribeRequest.request_id', index=0,
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='destination', full_name='pynms_api.SubscribeRequest.destination', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='paths', full_name='pynms_api.SubscribeRequest.paths', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='sample_interval', full_name='pynms_api.SubscribeRequest.sample_interval', index=3,
+      number=4, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='heartbeat_interval', full_name='pynms_api.SubscribeRequest.heartbeat_interval', index=4,
+      number=5, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='suppress_redundant', full_name='pynms_api.SubscribeRequest.suppress_redundant', index=5,
+      number=6, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='originated_qos_marking', full_name='pynms_api.SubscribeRequest.originated_qos_marking', index=6,
+      number=7, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='encoding', full_name='pynms_api.SubscribeRequest.encoding', index=7,
+      number=8, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=755,
+  serialized_end=1058,
+)
+
+
+_SUBSCRIBEREQUESTDESTINATION = _descriptor.Descriptor(
+  name='SubscribeRequestDestination',
+  full_name='pynms_api.SubscribeRequestDestination',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='address', full_name='pynms_api.SubscribeRequestDestination.address', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='port', full_name='pynms_api.SubscribeRequestDestination.port', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1060,
+  serialized_end=1120,
+)
+
+
+_SUBSCRIBEREQUESTPATH = _descriptor.Descriptor(
+  name='SubscribeRequestPath',
+  full_name='pynms_api.SubscribeRequestPath',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='path', full_name='pynms_api.SubscribeRequestPath.path', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='exclude_filter', full_name='pynms_api.SubscribeRequestPath.exclude_filter', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1122,
+  serialized_end=1182,
+)
+
+
+_SUBSCRIBERESPONSE = _descriptor.Descriptor(
+  name='SubscribeResponse',
+  full_name='pynms_api.SubscribeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='subscription_id', full_name='pynms_api.SubscribeResponse.subscription_id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='pynms_api.SubscribeResponse.request_id', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='response_code', full_name='pynms_api.SubscribeResponse.response_code', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='message', full_name='pynms_api.SubscribeResponse.message', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1185,
+  serialized_end=1313,
+)
+
+
+_SUBSCRIBEUPDATERESPONSE = _descriptor.Descriptor(
+  name='SubscribeUpdateResponse',
+  full_name='pynms_api.SubscribeUpdateResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='subscription_id', full_name='pynms_api.SubscribeUpdateResponse.subscription_id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='path', full_name='pynms_api.SubscribeUpdateResponse.path', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='pynms_api.SubscribeUpdateResponse.value', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1315,
+  serialized_end=1394,
+)
+
+
+_SUBSCRIBEUPDATE = _descriptor.Descriptor(
+  name='SubscribeUpdate',
+  full_name='pynms_api.SubscribeUpdate',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='subscribe_update_async', full_name='pynms_api.SubscribeUpdate.subscribe_update_async', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='subscribe_update_sync', full_name='pynms_api.SubscribeUpdate.subscribe_update_sync', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='response', full_name='pynms_api.SubscribeUpdate.response',
+      index=0, containing_type=None, fields=[]),
+  ],
+  serialized_start=1397,
+  serialized_end=1559,
+)
+
 _GETREQUEST.fields_by_name['encoding'].enum_type = _ENCODINGTYPE
 _GETREQUEST.fields_by_name['data_type'].enum_type = _GETDATACOMMAND
 _GETRESPONSE.fields_by_name['response'].message_type = _GETRESPONSEOPERATION
@@ -472,12 +766,30 @@ _SETREQUESTOPERATION.fields_by_name['opcode'].enum_type = _SETDATACOMMAND
 _SETREQUEST.fields_by_name['encoding'].enum_type = _ENCODINGTYPE
 _SETREQUEST.fields_by_name['operation'].message_type = _SETREQUESTOPERATION
 _SETRESPONSE.fields_by_name['response_code'].enum_type = _RPCRESPONSE
+_SUBSCRIBEREQUEST.fields_by_name['destination'].message_type = _SUBSCRIBEREQUESTDESTINATION
+_SUBSCRIBEREQUEST.fields_by_name['paths'].message_type = _SUBSCRIBEREQUESTPATH
+_SUBSCRIBEREQUEST.fields_by_name['encoding'].enum_type = _ENCODINGTYPE
+_SUBSCRIBERESPONSE.fields_by_name['response_code'].enum_type = _RPCRESPONSE
+_SUBSCRIBEUPDATE.fields_by_name['subscribe_update_async'].message_type = _SUBSCRIBEUPDATERESPONSE
+_SUBSCRIBEUPDATE.fields_by_name['subscribe_update_sync'].message_type = _SUBSCRIBERESPONSE
+_SUBSCRIBEUPDATE.oneofs_by_name['response'].fields.append(
+  _SUBSCRIBEUPDATE.fields_by_name['subscribe_update_async'])
+_SUBSCRIBEUPDATE.fields_by_name['subscribe_update_async'].containing_oneof = _SUBSCRIBEUPDATE.oneofs_by_name['response']
+_SUBSCRIBEUPDATE.oneofs_by_name['response'].fields.append(
+  _SUBSCRIBEUPDATE.fields_by_name['subscribe_update_sync'])
+_SUBSCRIBEUPDATE.fields_by_name['subscribe_update_sync'].containing_oneof = _SUBSCRIBEUPDATE.oneofs_by_name['response']
 DESCRIPTOR.message_types_by_name['GetRequest'] = _GETREQUEST
 DESCRIPTOR.message_types_by_name['GetResponseOperation'] = _GETRESPONSEOPERATION
 DESCRIPTOR.message_types_by_name['GetResponse'] = _GETRESPONSE
 DESCRIPTOR.message_types_by_name['SetRequestOperation'] = _SETREQUESTOPERATION
 DESCRIPTOR.message_types_by_name['SetRequest'] = _SETREQUEST
 DESCRIPTOR.message_types_by_name['SetResponse'] = _SETRESPONSE
+DESCRIPTOR.message_types_by_name['SubscribeRequest'] = _SUBSCRIBEREQUEST
+DESCRIPTOR.message_types_by_name['SubscribeRequestDestination'] = _SUBSCRIBEREQUESTDESTINATION
+DESCRIPTOR.message_types_by_name['SubscribeRequestPath'] = _SUBSCRIBEREQUESTPATH
+DESCRIPTOR.message_types_by_name['SubscribeResponse'] = _SUBSCRIBERESPONSE
+DESCRIPTOR.message_types_by_name['SubscribeUpdateResponse'] = _SUBSCRIBEUPDATERESPONSE
+DESCRIPTOR.message_types_by_name['SubscribeUpdate'] = _SUBSCRIBEUPDATE
 DESCRIPTOR.enum_types_by_name['EncodingType'] = _ENCODINGTYPE
 DESCRIPTOR.enum_types_by_name['GetDataCommand'] = _GETDATACOMMAND
 DESCRIPTOR.enum_types_by_name['SetDataCommand'] = _SETDATACOMMAND
@@ -525,6 +837,48 @@ SetResponse = _reflection.GeneratedProtocolMessageType('SetResponse', (_message.
   ))
 _sym_db.RegisterMessage(SetResponse)
 
+SubscribeRequest = _reflection.GeneratedProtocolMessageType('SubscribeRequest', (_message.Message,), dict(
+  DESCRIPTOR = _SUBSCRIBEREQUEST,
+  __module__ = 'pynms_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:pynms_api.SubscribeRequest)
+  ))
+_sym_db.RegisterMessage(SubscribeRequest)
+
+SubscribeRequestDestination = _reflection.GeneratedProtocolMessageType('SubscribeRequestDestination', (_message.Message,), dict(
+  DESCRIPTOR = _SUBSCRIBEREQUESTDESTINATION,
+  __module__ = 'pynms_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:pynms_api.SubscribeRequestDestination)
+  ))
+_sym_db.RegisterMessage(SubscribeRequestDestination)
+
+SubscribeRequestPath = _reflection.GeneratedProtocolMessageType('SubscribeRequestPath', (_message.Message,), dict(
+  DESCRIPTOR = _SUBSCRIBEREQUESTPATH,
+  __module__ = 'pynms_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:pynms_api.SubscribeRequestPath)
+  ))
+_sym_db.RegisterMessage(SubscribeRequestPath)
+
+SubscribeResponse = _reflection.GeneratedProtocolMessageType('SubscribeResponse', (_message.Message,), dict(
+  DESCRIPTOR = _SUBSCRIBERESPONSE,
+  __module__ = 'pynms_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:pynms_api.SubscribeResponse)
+  ))
+_sym_db.RegisterMessage(SubscribeResponse)
+
+SubscribeUpdateResponse = _reflection.GeneratedProtocolMessageType('SubscribeUpdateResponse', (_message.Message,), dict(
+  DESCRIPTOR = _SUBSCRIBEUPDATERESPONSE,
+  __module__ = 'pynms_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:pynms_api.SubscribeUpdateResponse)
+  ))
+_sym_db.RegisterMessage(SubscribeUpdateResponse)
+
+SubscribeUpdate = _reflection.GeneratedProtocolMessageType('SubscribeUpdate', (_message.Message,), dict(
+  DESCRIPTOR = _SUBSCRIBEUPDATE,
+  __module__ = 'pynms_rpc_pb2'
+  # @@protoc_insertion_point(class_scope:pynms_api.SubscribeUpdate)
+  ))
+_sym_db.RegisterMessage(SubscribeUpdate)
+
 
 import abc
 from grpc.beta import implementations as beta_implementations
@@ -540,6 +894,9 @@ class BetaOCPyNMSServicer(object):
   @abc.abstractmethod
   def Set(self, request, context):
     raise NotImplementedError()
+  @abc.abstractmethod
+  def Subscribe(self, request_iterator, context):
+    raise NotImplementedError()
 
 class BetaOCPyNMSStub(object):
   """The interface to which stubs will conform."""
@@ -552,8 +909,13 @@ class BetaOCPyNMSStub(object):
   def Set(self, request, timeout):
     raise NotImplementedError()
   Set.future = None
+  @abc.abstractmethod
+  def Subscribe(self, request_iterator, timeout):
+    raise NotImplementedError()
 
 def beta_create_OCPyNMS_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
+  import pynms_rpc_pb2
+  import pynms_rpc_pb2
   import pynms_rpc_pb2
   import pynms_rpc_pb2
   import pynms_rpc_pb2
@@ -561,14 +923,17 @@ def beta_create_OCPyNMS_server(servicer, pool=None, pool_size=None, default_time
   request_deserializers = {
     ('pynms_api.OCPyNMS', 'Get'): pynms_rpc_pb2.GetRequest.FromString,
     ('pynms_api.OCPyNMS', 'Set'): pynms_rpc_pb2.SetRequest.FromString,
+    ('pynms_api.OCPyNMS', 'Subscribe'): pynms_rpc_pb2.SubscribeRequest.FromString,
   }
   response_serializers = {
     ('pynms_api.OCPyNMS', 'Get'): pynms_rpc_pb2.GetResponse.SerializeToString,
     ('pynms_api.OCPyNMS', 'Set'): pynms_rpc_pb2.SetResponse.SerializeToString,
+    ('pynms_api.OCPyNMS', 'Subscribe'): pynms_rpc_pb2.SubscribeResponse.SerializeToString,
   }
   method_implementations = {
     ('pynms_api.OCPyNMS', 'Get'): face_utilities.unary_unary_inline(servicer.Get),
     ('pynms_api.OCPyNMS', 'Set'): face_utilities.unary_unary_inline(servicer.Set),
+    ('pynms_api.OCPyNMS', 'Subscribe'): face_utilities.stream_stream_inline(servicer.Subscribe),
   }
   server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
   return beta_implementations.server(method_implementations, options=server_options)
@@ -578,17 +943,22 @@ def beta_create_OCPyNMS_stub(channel, host=None, metadata_transformer=None, pool
   import pynms_rpc_pb2
   import pynms_rpc_pb2
   import pynms_rpc_pb2
+  import pynms_rpc_pb2
+  import pynms_rpc_pb2
   request_serializers = {
     ('pynms_api.OCPyNMS', 'Get'): pynms_rpc_pb2.GetRequest.SerializeToString,
     ('pynms_api.OCPyNMS', 'Set'): pynms_rpc_pb2.SetRequest.SerializeToString,
+    ('pynms_api.OCPyNMS', 'Subscribe'): pynms_rpc_pb2.SubscribeRequest.SerializeToString,
   }
   response_deserializers = {
     ('pynms_api.OCPyNMS', 'Get'): pynms_rpc_pb2.GetResponse.FromString,
     ('pynms_api.OCPyNMS', 'Set'): pynms_rpc_pb2.SetResponse.FromString,
+    ('pynms_api.OCPyNMS', 'Subscribe'): pynms_rpc_pb2.SubscribeResponse.FromString,
   }
   cardinalities = {
     'Get': cardinality.Cardinality.UNARY_UNARY,
     'Set': cardinality.Cardinality.UNARY_UNARY,
+    'Subscribe': cardinality.Cardinality.STREAM_STREAM,
   }
   stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
   return beta_implementations.dynamic_stub(channel, 'pynms_api.OCPyNMS', cardinalities, options=stub_options)

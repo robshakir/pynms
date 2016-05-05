@@ -81,7 +81,7 @@ class PyNMSServerGRPCMethods(object):
       if prefix is not None:
         # TODO: what should be done if a prefix is specified, should the
         # absolute path be used, or the path that corresponds to the prefix?
-        msg.path = request.path + "/" + path
+        msg.path = request.prefix + "/" + path
       else:
         msg.path = path
 

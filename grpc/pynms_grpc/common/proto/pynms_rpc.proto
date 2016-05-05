@@ -50,6 +50,7 @@ service OCPyNMS {
 	rpc Get(GetRequest) returns (GetResponse);
 	rpc Set(SetRequest) returns (SetResponse);
 
+	rpc Subscribe(stream SubscribeRequest) returns (stream SubscribeResponse);
 }
 
 // Message sent by the client to the server when a request is
@@ -100,4 +101,57 @@ message SetResponse {
 	uint64 request_id = 1;
 	RPCResponse response_code = 2;
 	string message = 3;
+}
+
+// The message that is sent by the client within a
+// subscribe request
+message SubscribeRequest {
+	uint64 request_id = 1;
+	repeated SubscribeRequestDestination destination = 2;
+	repeated SubscribeRequestPath paths = 3;
+	uint64 sample_interval = 4;
+	uint64 heartbeat_interval = 5;
+	bool suppress_redundant = 6; // used to determine whether to suppress unchanged updates
+	uint32 originated_qos_marking = 7;
+	EncodingType encoding = 8;
+}
+
+// A submessage used within a SubscribeRequest to indicate UDP
+// destinations
+message SubscribeRequestDestination {
+	string address = 1; // This would be better encoded as something more efficient - but we need a 128bit number
+	uint32 port = 2; // Would prefer a uint16, but there is no such protobuf type
+}
+
+// A submessage used within a SubscribeRequest to indicate the
+// paths that are to be subscribed to
+message SubscribeRequestPath {
+	string path = 1;
+	string exclude_filter = 2;
+}
+
+// The message sent by a server in response to a SubscribeRequest
+// and as an ongoing heartbeat
+message SubscribeResponse {
+	uint32 subscription_id = 1;
+	uint64 request_id = 2;
+	RPCResponse response_code = 3;
+	string message = 4;
+}
+
+// A really basic message that can be used to supply subscription
+// updates back to a client
+message SubscribeUpdateResponse {
+	uint32 subscription_id = 1;
+	string path = 2;
+	string value = 3;
+}
+
+// The subscribe update that can return either a synchronous
+// update regarding a subscription, or an async update.
+message SubscribeUpdate {
+	oneof response {
+		SubscribeUpdateResponse subscribe_update_async = 1;
+		SubscribeResponse subscribe_update_sync = 2;
+	}
 }
