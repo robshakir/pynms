@@ -3,3 +3,6 @@ dist/*
 *.egg-info
 pynms_yang_examples/bindings/*
 pynms_yang_examples/xrbindings/*
+include/*
+openconfig/*
+

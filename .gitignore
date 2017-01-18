@@ -63,3 +63,5 @@ target/
 
 # Development environment
 dev/*
+pytest/*
+protobuf*

@@ -31,6 +31,9 @@ class GRPCPyNMSServicer(pynms_rpc_pb2.BetaOCPyNMSServicer):
     self._logger.debug("SENDING: %s" % response_msg)
     return response_msg
 
+  def Subscribe(self, request, context):
+    raise NotImplementedError("Subscribe not implemented")
+
 class PyNMSGRPCServer(object):
   def __init__(self, path_helper, port=50051):
     self._path_helper = path_helper

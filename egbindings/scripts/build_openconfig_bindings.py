@@ -20,18 +20,38 @@ def main():
 
   OC = "https://raw.githubusercontent.com/openconfig/" + \
             "public/master/release/models/"
-  RFC = "https://raw.githubusercontent.com/YangModels/" + \
-            "yang/master/standard/ietf/RFC/"
+  RFC = "https://raw.githubusercontent.com/robshakir/yang/master/"+ \
+          "standard/ietf/RFC/"
 
   YANG_FILES = [
                     {
                       "type": "REMOTE",
-                      "path": OC + "bgp/openconfig-bgp-multiprotocol.yang",
+                      "path": OC + "bgp/openconfig-bgp-common-multiprotocol.yang",
                       "dir": "openconfig"
                     },
                     {
                       "type": "REMOTE",
-                      "path": OC + "bgp/openconfig-bgp-operational.yang",
+                      "path": OC + "bgp/openconfig-bgp-common-structure.yang",
+                      "dir": "openconfig"
+                    },
+                    {
+                      "type": "REMOTE",
+                      "path": OC + "bgp/openconfig-bgp-common.yang",
+                      "dir": "openconfig"
+                    },
+                    {
+                      "type": "REMOTE",
+                      "path": OC + "bgp/openconfig-bgp-global.yang",
+                      "dir": "openconfig"
+                    },
+                    {
+                      "type": "REMOTE",
+                      "path": OC + "bgp/openconfig-bgp-neighbor.yang",
+                      "dir": "openconfig"
+                    },
+                    {
+                      "type": "REMOTE",
+                      "path": OC + "bgp/openconfig-bgp-peer-group.yang",
                       "dir": "openconfig"
                     },
                     {
